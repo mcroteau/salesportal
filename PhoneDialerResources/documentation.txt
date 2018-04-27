@@ -1,0 +1,45 @@
+http://www.whirlywiryweb.com/article.asp?id=%2Flaunchinie
+
+http://www.pcplus.co.uk/tips/default.asp?pagetypeid=2&articleid=5545&subsectionid=390 
+======================================================
+
+Installing LaunchinIE
+
+I considered packaging the control in a convenient installer, but I realized that most intranet administrators have their own favorite scripts to quickly install software corporation wide.
+On top of that, I think it's better to detail the steps, so you know what happens and know where to look when something goes wrong.
+
+Step 1: Download the LaunchinIE Control.
+The Control LaunchinIE.DLL is compressed in a zip file for download (89K); the DLL can be copied to any spot desired on your hard drive. Most often, controls of this kind are put in the SYSTEM32 folder. You're free to choose though.
+
+Step 2: Register the LaunchinIE Control.
+You need to tell your system where to find LaunchinIE. Every Windows system has REGSVR32.EXE to do this. It's a console application, most often found in the SYSTEM folder. Just pass LaunchinIE.dll as an argument. If you're a bit handy, you open SYSTEM and SYSTEM32 each in their own Explorer window, and drag the LaunchinIE.dll to REGSVR32.EXE. Easy.
+A dialog box will tell that 'Dllregisterserver (...) succeeded'.
+
+Step 3: Define approved URLs in the registry.
+You need to create a key HKEY_LOCAL_MACHINE/SOFTWARE/RockinFewl/LaunchinIE/Approved.
+In that key, you can define as many safe URLs as you desire. It's exactly the same approach as the one used by Internet Explorer in its security zones. Name the values 'url1', 'url2', ... - start with 'url1'.
+Only URLs that start the same as one defined here are serviced by LaunchinIE.
+The registry is untouchable for malicious web pages, ONLY if you're careful enough to not allow them to use LaunchinIE. I can't stress enough: take time to define approved URLs in as much detail as possible.
+
+
+Step 4: Write the HTML code.
+LaunchApplication launches any command line you can come up with. Either in JavaScript or VBScript:
+
+<script language="JavaScript">
+  function launchApp(strCmdLine)
+  {
+    var obj = new ActiveXObject("LaunchinIE.Launch");
+    obj.LaunchApplication(strCmdLine);
+  }
+</script>
+<script language="VBScript">
+  sub launchApp(strCmdLine)
+    dim obj
+    set obj = CreateObject("LaunchinIE.Launch")
+    obj.LaunchApplication strCmdLine
+  end sub
+</script>
+You can start the script by providing for instance this hyperlink: 
+<a
+href="javascript:launchApp('c:\\windows\\notepad.exe c:\\autoexec.bat')">
+Launch notepad!</a>

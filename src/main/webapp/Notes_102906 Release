@@ -1,0 +1,31 @@
+10/29/06 
+Key Changes:
+
+	1.	Genericized the labels for 4 fields and 2 drop downs, allowing user control of the labels 
+		(see below for cross reference to old values).
+	2.	Moved Administration to be a menu function.
+	3.	Created a new user type (user_type = 2 in Webuser table).  The administration menu option is only
+		available for user_type = 2.
+	4.	Add jasper reports capability to the application.
+	5.	Added Print report button to the search prospects result screen. This prints a PDF report
+	7.	Salesportal has been changed to work under Gerionimo.
+	8.	JForum has been added to the www.randrinc.com site so you can ask questions and get support at no charge.
+		
+	
+	
+DB changes:
+	Change 1 - A new table is created -Label
+	We have genericized 4 user fields and 2 user drop downs.
+	Use this table to set up the default label that will display on 
+	the search, create, update and display screens.
+
+	Change 2 - Webuser table user Admin is changed to type 2.  
+	A type 2 user can access admin functions from the menu.
+	
+Cross Reference - old values to new genericized fields
+		user_dropdown_1 = Table system_type
+		user_dropdown_2 = Table software_type
+		user1 = SSA
+		user2 = SIC
+		user3 = System #
+		user4 = Hardware Maintenance

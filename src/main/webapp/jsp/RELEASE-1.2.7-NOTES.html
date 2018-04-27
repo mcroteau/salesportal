@@ -1,0 +1,113 @@
+<html>
+<head>
+ <style type="text/css"> 
+	body{font-family: Georgia; line-height: 1.5em; width:800px; color:##404040;}
+	h1{text-align:center; font-size:18pt; color:#003964;}
+	h2{text-align:center; font-size:14pt; color:003964;}
+	h3{text-align:center; font-size:14pt; color:#003964;}
+	ul li span{font-weight:bold; margin:10px; color:#003964;}
+	ul li{list-style:none; margin:20px; border-bottom:dotted 1px #80ff80;}
+	p{margin-left:20px; margin-top:5px;}
+	ul li ul li{list-style:square; border:none; margin:0px;}
+
+</STYLE>
+</head>
+<body>
+
+<h1>Sales Portal 1.2.7 (Oct 2008)</h1>
+
+<p>Sales Portal 1.2.7 has numerous bug fixes and upgrades</p>
+
+<p>Here is a list of bug fixes:</p>
+
+<ul>
+
+<li><span>bug 966 : add creation date to propect sales action</span>
+	<p>You will see this in the db.  We have moved this in to keep track of
+	salesmen activity.</p></li>
+
+<li><span>Bug 932 : ability to view closed sales actions</span>
+	<p>When you close a sales action, you will be able to review on the
+	prospect screen.</p></li>
+
+<li><span>Bug  880 : should not delete sales action if belongs to prospect</span>
+	<p>We had an issue where admin users were able to delete sales actions, which 
+	on the prospect screen would return a blank sales action.  Instead of deleting all
+	prospect sales actions when deleting a sales action, we put a check and are forcing	
+	the admin user to remove the sales actions from the prospect before deleting.</p></li>
+
+<li><span>bug 758 : print prospect lists uses old headings</span>
+	<p>This required a new ireport change.  Now uses the same headings as the search
+	results screen.</p></li>
+
+<li><span>bug 1041 : size of characters left box too small</span>
+	<p>There was a small issue with the characters left box.  On the note screen it wasnt large 
+	enough to see all numbers.  Example:  would see 200 instead of 2000.</p></li>
+
+<li><span>bug 946 : make color on sales actions optional</span>
+	<p>After review, we felt it not necessary to require a color when creating a sales action.
+	Although having a color there as an option is still very useful.  So, disabled the requirement 
+	check.  Can create sales actions without selecting a color.</p></li>
+
+<li><span>bug 935 : search screen by email</span>
+	<p>Added the email box on search screen.  You can now search by a primary email address.</p></li>
+
+<li><span>bug 947 : losing yes/no on mandatory date when updating</span>
+	<p>mandatory date was being saved, just not being displayed right on the sales action
+	maintenance screens.  This is now fixed.</p></li>
+
+<li><span>bug 778 : add description to campaign</span>
+	<p>Added a description box on campaign maintenance screens.  It takes upto 200 characters.</p></li>
+
+<li><span>bug 1019 : Prospect Campaign - need to indicate if campaign is completed</span>
+	<p>We noticed that when viewing the prospect screen, the campaign information was minimal at best.
+	We wanted to give the user a little more information, so now when on the prospect screen, the 
+	associated campaign includes </p>
+	<ul>
+		<li>Name</li>
+		<li>Description(*recently added)</li>
+		<li>Completed Status(changes to Completed when all sales actions have been completed)</li>
+		<li>Actions Remaining(actions left in to complete campaign)</li>
+		<li>Total Actions(Total Actions in campaign)</li>
+	</ul>
+	</li>
+
+<li><span>bug 1107 : auto fill date with todays date everywhere date is entered</span>
+	<p>Wanted to add default date to entry screens.  Defaulted to the current date</p></li>
+
+<li><span>Bug 1011 : Sales actions - instead of deleting, add active/inactive flag</span>
+	<p>We now do not delete sales actions from database, instead we change a status to deleted.
+	This will help keep track of salesman/saleswoman activity. Included is changed date and
+	who changed the sales action.</p></li>
+
+
+<li><span>Bug 1031 : Move min and max connections into Appconfig</span></li>
+
+
+<li><span>Bug 1040 : campaign not working right on import</span>
+	<p>We found an issue in the past when trying to assign a campaign to a list of prospects
+	we were trying to import.  This is now resolved.  Simply enter the campaign id you would like
+	to assign to the corresponding prospect and it will attach all campaign sales actions and default
+	the sales action date to the import date, priority set to 1.</p></li>
+
+<li><span>Bug 966 : add creation date to sales action</span>
+	<p>We now keep track of when a prospect sales action is created, changed and deleted.</p></li>
+
+
+</ul>
+
+
+
+<p>For documentation please check Sales Portal User Manuals located in the documentation directory.</p>
+
+<p>For Sales Portal Support and Services please contact John at <a href="mailto:john4@randrinc.com" target="_blank">john4@randrinc.com</a>.</p>
+
+<p>Additional copies of documentation and information can be found/downloaded at <a href="http://www.randrinc.com" target="_blank">www.randrinc.com</a></p>
+
+<p>We thank you for choosing Sales Portal for download and hope it serves your needs.  Enjoy.</p>
+
+<h2>The Randr Team</h2>
+
+
+</body>
+</html>

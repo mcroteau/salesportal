@@ -1,0 +1,95 @@
+<html>
+<head>
+  <style type="text/css"> 
+	body{font-family: Georgia; line-height: 1.5em; width:800px; color:##404040;}
+	h1{text-align:center; font-size:18pt; color:#000080;}
+	h2{text-align:center; font-size:14pt; color:green;}
+	h3{text-align:center; font-size:14pt; color:#000080;}
+	p{margin-left: 30px; margin-right: 30px; }
+	#label{font-weight:bold;}
+	#content{text-align: left;}
+	p.config{font-family: sans-serif;font-style: italic; background-color: #E0EEEE;text-align:center;}
+	#admin{border:dotted 1px #0000ff; background:#f9fbf2; width:95%;padding:10px;margin-top:30px; margin-bottom:30px;}
+	#admin ul li{font-weight: normal;}
+	#admin ol li{font-weight:normal;}
+	#website{border:dotted 1px #0000ff; background:#f9fbf2; width:95%;padding:10px;margin-top:30px; margin-bottom:30px;}
+
+</STYLE>
+</head>
+<body>
+
+<style type="text/css"> 
+	textarea{font-size:8pt; font-family:Georgia; line-height:1.4em; background-color:#efefef;padding:10px; }
+
+</STYLE>
+
+
+<h1>*** Randr Inc Web Business Suite - Sales Portal 11.07 (yy.mm.sub) July 2011 ***</h1>
+
+<p>There are a lot of changes in this release.  If you are upgrading an existing release, don't hesitate to use the <a href="http://www.randrinc.com/jforum/forums/list.page">Randr Forum</a> 
+ and <a href="http://www.randrinc.com/2d_randr/orderportal/company_form">our request page</a> for help. Or we can be reached at 951-369-3427 (US) 
+ or <A HREF="mailto:john4@randrinc.com">john4@randrinc.com</A><br><br>
+ The Salesportal is up on Ubuntu's Launchpad <a href="https://launchpad.net/webbusinesssuite">click for the WBS Launchpad page</a>. Select the Salesportal from
+ the list of projects on the lower right of the page. <br/>
+ Thanks for your support.<br>
+ the Randr Team.
+ 
+ 
+ </p>
+<div id="admin">
+
+<ul>
+	<li>BluePrint sp-revenuetracking - Changes to the commission logic to include revenue so you can track proposals and future revenue.  Reports added to the Infoportal.</li>
+	<li>BluePrint sp-performancedata - Added revenue and forecast fields into the Prospect table and display screen.  You can manually enter revenue. Also added another view with the new fields, 
+	 Performance Data View to the search prospects results screen.  In the future these will be linked to EBS and Order Portal.
+	 Includes 2 new graphics.  Displaying the performace data is controlled by tags in the appConfig.xml</li>
+	 <li>Added fields to prospect table and prospect display for Order Portal and EBS customer numbers to allow for linking between the portals.</li>
+	 <li>Search Prospects ordered the result by company name.</li>
+	 <li>Installs with $ as a currency code</li>
+	 <li>Search prospects screen - added note to use Cltr_click to de-select an option.</li>
+	 <li>BluePrint sp-logostandarization - Updated Randr Logo on sign in page and above menu.  New graphic - randr-logo-small.jpg</li>
+	 <li>BluePrint sp-updateDocfromProspect - We now allow a document description and type to be changed from the prospect screen.</li>
+	 <li>BluePrint sp-linktospinsalesactionemail - Added a tag to the appConfig.xml with Salesportal URL for a link in the Sales Action Emails (</li>
+	 <li>Added label short name to data base</li>
+	 <li>Add user type 3, a user who can search and view prospects only but not download and has no other options</li>
+	 <li>Added the ability to control if the heading is Prospect.  This allows you to have customers, salesmen, etc as the heading.</li>
+	 <li>Added the ability to control the page content of the home page you see when you sign on</li>
+	
+	
+	 <li>Bug fixes:</li>
+	 <ul>
+	 	<li>#571794 - Duplicate Results Page sort buttons not working</li>
+	 	<li>#619461 - Company Selection not working on search prospects and calendar</li>
+	 	<li>#619461 - When salesman is limited to one company it did not work</li>
+	 	<li>#619461 - Salesman's default company is the one selected on the search screen</li>
+	 	<li>#619469 - Could not update documents from main menu.</li>
+	 	<li>#619461 - added to the salesman table and screen flag to indicate they are limited to 1 company.</li>
+	 	
+	 	<li></li>
+	 </ul>
+	
+	
+	<li>There are new database scripts to run</li>
+	<li>There are tags to be added into the WebContent/xml_config/appConfig.xml</li>
+	<ul>
+		<li>SALESPORTAL_URL</li>
+		<li>DISPLAY_OPEN_ORDERS_FIELDS</li>
+		<li>DISPLAY_OPEN_QUOTES_FIELDS</li>
+		<li>DISPLAY_OPEN_AR_FIELDS</li>
+		<li>DISPLAY_ORDERS_INVOICES_FIELDS</li>
+		<li>HOME_PAGE_CONTENT - You can enter stuff to display when you sign in</li>
+		<li>PROSPECTS - Changes the heading on prospect pages</li>
+		<li>WORK_PROSPECT_HEADING - Changes the menu option work with prospects</li>
+		<li>MENU_OPTIONS_ENABLED_3 - should be these values:0,0,0,0,0,1,0,0,0,0,0,0,0,0,1</li>
+		
+	</ul>
+	<li>New Graphics:</li>
+	<ul>
+		<li>randr-logo-small.jpg</li>
+		<li>ProspectView.png</li>
+		<li>PerformanceDataView.pgn</li>
+	</ul>
+	
+
+</body>
+</html>

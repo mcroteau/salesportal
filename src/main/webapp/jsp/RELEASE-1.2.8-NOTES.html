@@ -1,0 +1,134 @@
+<html>
+<head>
+  <style type="text/css"> 
+	body{font-family: Georgia; line-height: 1.5em; width:800px; color:##404040;}
+	h1{text-align:center; font-size:18pt; color:#000080;}
+	h2{text-align:center; font-size:14pt; color:green;}
+	h3{text-align:center; font-size:14pt; color:#000080;}
+	p{margin-left: 30px; margin-right: 30px; }
+	#label{font-weight:bold;}
+	#content{text-align: left;}
+	p.config{font-family: sans-serif;font-style: italic; background-color: #E0EEEE;text-align:center;}
+	#admin{border:dotted 1px #0000ff; background:#f9fbf2; width:95%;padding:10px;margin-top:30px; margin-bottom:30px;}
+	#admin ul li{font-weight: bold;}
+	#admin ol li{font-weight:normal;}
+	#website{border:dotted 1px #0000ff; background:#f9fbf2; width:95%;padding:10px;margin-top:30px; margin-bottom:30px;}
+
+</STYLE>
+</head>
+<body>
+
+<h1>Sales Portal 1.2.8 (Feb 2009)</h1>
+
+<p>Sales Portal 1.2.8 has a number of new features and some fixes that are aimed at helping you to grow your business</p>
+
+<h1>New Features highlights</h1>
+
+<ul>
+	<li>Maintenance over Data Migration options and Data Migration Tables added</li>
+	<li>Prospect Import changes for territory and status id - see below </li>
+	<li>Totally new Logic for outbound Emails - see below </li>
+	<li>Import - added check box to check for duplicates, plus added to appConfig.xml for automated imports</li>
+	<li>New Territories to default to Yes include in Information Portal reports</li>
+	<li>Prospect Last Change date - now updated if notes, contact, sales action or campaign is added or updated</li>
+	<li>New Search criteria added to work with prospects screen - see below</li>
+	<li>Fixed a bug on return to Calendar from prospect detail screen </li>
+<ul>
+
+<br/><br/>
+<p>Below is a more detailed list of changes and updates to Sales Portal for this release</p>	
+
+<div id="admin">
+<h1>Outbound Emails to Prospects </h1>
+
+<ul>
+<li>Sales Portal can now easily send outbound emails to prospects via interfaces to Order Portal</li>  
+<li>Here is a link to the documentation on the web site that gives detailed information <a href="http://www.2d-orderportal.com/2d_randr/orderportal/catalog_presentation/by_product/0/Automated+Email+Demo+Script/0/0/0/0/0" target="_blank">)Email Demo Script </a></li>
+		<li>Here is a summary of the changes</li>
+		<ol>
+			<li>In Order Portal - You can now manually delete/remove an entry in the Email subscribers table</li>
+			<li>In Order Portal - Draft Emails are now linked to a webprofile.  They use the from email and smtp settings from that profile</li>
+			<li>In Order Portal - Draft Emails send to any email in the Email Queue table (a new table)</li>
+			<li>In Order Portal - You can select from the Email Subsriptions and the customer table to build your list in the Email Queue</li>
+			<li>In Order Portal - You can now manually import a list of email addresses to send Emails to</li>
+			<li>When you create a CSV file from the work with prospects screen you can now manually import it into Order Portal for sending of Emails</li>
+			<li>There are currently 2 forms of automated email interface</li>
+			<ol>
+				<li>From work with prospects screen there is a new option to send Emails</li>
+				<li>In admin there is a new Email Sales Actions that allows you to define a prospect group, date and email to be sent</li>
+			</ol>
+			<li>There is an automated interface between Sales Portal and Order Portal for importing prospects into the Email Queue and automatically sending Emails</li>
+			<ol>
+				<li>This is part of the base Web Business Suite logic.  Web Business Suite consists of:</li>
+				<ol>
+					<li><a href="http://www.2d-salesportal.com" target="_blank">Sales Portal</a></li>
+					<li><a href="http://www.2d-orderportal.com" target="_blank">Order Portal</a></li>
+					<li><a href="http://www.2d-infoportal.com" target="_blank">Information Portal for Order Portal and Information Portal for Sales Portal</a></li>
+					<li><a href="http://www.2d-datamigrationportal.com" target="_blank">Data Migration Portal</a></li>
+					<li><a href="http://www.jforum.net" target="_blank">Forum. (We normally use jForum) </a></li>
+				</ol>
+				<li>See the link above for complete documentation.  There will also be screen shots on the webs sites shortly</li>
+				<li>Automated Email Links requires the latest Sales Portal, Order Portal and Data Migration Portal</li>
+				
+			</ol>
+		</ol>
+</ul>
+</div>
+<div id="admin">
+<h1>Import Changes </h1>
+
+<ul>
+	<li>Additional help text has been added to the import screen</li>
+	<li>There is an added option that determines whether Sales Portal checks for duplicates as it imports or creates a prospect for every record</li>
+	<li>Territory - you can now use territory id as well territory name</li>
+	<li>Status code - you can now use status id as well status name</li>
+	<li></li>
+</ul>
+</div>
+
+<div id="admin">
+<h1>Data Migration Portal </h1>
+
+<ul>
+	<li>The data base scripts for Data Migration Portal are now included in the Sales Portal database</li>
+	<li>the Data Migration Portal options for prospect importing are now available on the Configuration menu under Data Migration Options</li>
+	
+	<li></li>
+</ul>
+</div>
+
+<div id="admin">
+<h1>Prospect Search Changes (work with prospects screen)</h1>
+
+<ul>
+	<li>You can search on email</li>
+	<li>You can search on phone number </li>
+	<li>You can search against contacts by name or phone number</li>
+	<li>You can search on prospect last change date, either exact match or from this date forware</li>
+	<li>Prospect change date is updated when:</li>
+	<ol>
+		<li>Add or update a Prospect Note</li>
+		<li>Add or update a Prospect Contact</li>
+		<li>Add or update a Prospect Sales Action</li>
+		<li>Add or update a Prospect Campaign</li>
+	</ol>
+</ul>
+</div>
+
+
+
+
+
+<p>For documentation please check Sales Portal User Manuals located in the documentation directory.</p>
+
+<p>For Sales Portal Support and Services please contact John at <a href="mailto:john4@randrinc.com" target="_blank">john4@randrinc.com</a>.</p>
+
+<p>Additional copies of documentation and information can be found/downloaded at <a href="http://www.randrinc.com" target="_blank">www.randrinc.com</a></p>
+
+<p>We thank you for choosing Sales Portal for download and hope it serves your needs.  Enjoy.</p>
+
+<h2>The Randr Team</h2>
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+body {font-family:arial,verdana,tahoma; font-size:11px; margin: 0px}
+h1 {color:navy;font-size:14px; margin-top: 11px;}
+h2 {color:navy;font-size:12px}
+h3 {color:navy;font-size:11px}
+h4 {color:navy;font-size:9px}
+
+img {border-style:solid; border-width:0px}
+
+table {font-size:11px}
+th {}
+td {}
+
+table.report {font-family:Arial; font-size:10px; border-collapse:collapse;border-color: #505050}
+
+#customButton{
+	background-color:#008B00;
+	font-family:vera sans, Arial;
+	font-size:12;
+	color:#FFFFFF;
+	height: 25px;
+	width: 80px;
+}
+#content{
+	font-family:Arial;
+	font-size:11px;	
+	text-align: left;
+	padding-left: 10px;
+}
+
+#userProfile{
+	font-family:Arial;
+	font-size:9px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#header{
+	font-family:Arial
+ 	font-color:navy;
+ 	font-size:12px	
+	text-align:center;
+}
+#buttonGroup{
+	text-align: center;
+	padding-top: 10px;
+}
+
+#label{
+	text-align: right;
+	padding-right: 10px;	
+}
+
+#heading{
+	text-align: center;
+	padding-top: 10px;
+}
+
+#notes{
+	font-family:Arial
+ 	font-color:navy;
+ 	font-size:9px		
+}
+a:link {color:#0000BB; text-decoration:none}
+a:visited {color:#0000BB; text-decoration:none}
+a:active {color:red; text-decoration:underline;}
+a:hover {color:blue; text-decoration:underline;}
+
+a.button:link {background-color: #c0c9c0; border-style:outset; border-width:2px; color:black; text-decoration:none; height:20px}
+a.button:visited {background-color: #c0c9c0; border-style:outset; border-width:2px; color:black; text-decoration:none; height:20px}
+a.button:active {background-color: #c0c9c0; border-style:inset; border-width:2px; color:black; text-decoration:none; height:20px}
+a.button:hover {background-color: #c0c9c0; border-style:outset; border-width:2px; color:black; text-decoration:none; height:20px}
+
+
+hr {height:1px; color:#c0c0c0}
+
+input {font-family:verdana,Arial;font-size:11px;}
+select {font-family:verdana,Arial; font-size:11px}
+textarea {font-family:verdana,Arial; font-size:11px}
+
+#allContent{
+	border-style:solid; border-width:1px; border-color: #505050; width:375; margin: 5px; padding: 5px;
+}
+#flat {border:solid 0px #f0f0f0; background-color: #f0f0f0}

@@ -1,0 +1,1 @@
+select count (*) as count, upper(t.territory) as territory from prospect p inner join territory t on p.territory_id=t.territory_id where email is not null Group by upper(t.territory)

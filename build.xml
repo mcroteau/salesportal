@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+
+<!-- Ant - build, test, and deploy script for salesportal project -->
+
+<project name="salesportal" basedir="." default="usage">
+
+<!-- SETUP AND CONFIGURATION -->
+
+	<property file="build.properties"/>
+
+	<path id="master-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="test-classpath">
+		<pathelement location="${target.classes.java.dir}" />
+		<pathelement location="${target.classes.test.dir}" />
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	
+	<!--	commented out for hudson-->
+		<!--<taskdef name="ssh" classname="com.sshtools.ant.Ssh" classpath="${tomcat.local.home}\server\lib\maverick-ant.jar"/>  windows-->
+		<!--<taskdef name="ssh" classname="com.sshtools.ant.Ssh" classpath="${tomcat.local.home}/lib/maverick-ant.jar"/> ubuntu-->
+			<!-- REQUIRED FOR THE AUTO DEPLOY SCRIPTS, USES MAVERICK-ANT -->
+			
+				
+			<!--	commented out for hudson -->
+		<!--<taskdef file="build_tomcat_tasks.properties">
+				
+				<classpath>
+					<pathelement path="${tomcat.local.home}\server\lib\catalina-ant.jar" />  windows
+					<pathelement path="${tomcat.local.home}${tomcat.local.home}/lib/catalina-ant.jar" />  ubuntu
+				</classpath>
+			</taskdef>
+			-->
+	<!-- NEED TO REMOVE THIS DEPENDENCY SO ONE BUILD FILE WILL WORK IN MULTIPLE ENVIROMENTS 
+			INCLUDING CRUISECONTROL. WILL PROBABLY REQUIRE THAT ANT USERS ALL HAVE catalina-out.jar
+			IN THE ANT_HOME/lib folder -->	
+	
+	<target name="configure.eclipse" if="eclipse.running">
+		<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter" />
+		<echo message="Configuring compiler for Eclipse..." />
+	</target>
+
+
+<!-- TARGETS -->	
+
+	<target name="clean" description="Clean output dirs dist)">
+		<delete dir="${target.classes.java.dir}"/>
+		<delete dir="${dist.dir}"/>
+		<delete dir="${target.report.dir}"/>
+	</target>
+
+
+	<target name="compile"
+		description="Compile main source tree java files into class files, generate jar files"
+			depends="configure.eclipse">
+
+		<mkdir dir="${target.classes.java.dir}"/>
+
+		<javac destdir="${target.classes.java.dir}" source="1.5" target="1.5" debug="true"
+				deprecation="false" optimize="false" failonerror="true" fork="true">
+			<src path="${src.dir}"/>
+			<src path="${src.test.dir}"/>
+			<classpath refid="master-classpath"/>
+		</javac>
+	
+	</target>
+
+	<target name="warfile" depends="compile" description="Build the web application archive">
+		<mkdir dir="${dist.dir}"/>
+		<war destfile="${dist.dir}/${war.name}.war" webxml="${war.dir}/WEB-INF/web.xml">			
+			<!-- Include the JSPs and other documents -->
+			<fileset dir="${war.dir}" excludes="WEB-INF/**" />		
+			<!-- Bring in Spring-specific XML configuration files -->
+			<webinf dir="${war.dir}/WEB-INF">
+				<!-- We've already included this -->
+				<exclude name="web.xml"/>
+				<exclude name="**/*.class"/>
+				<exclude name="**/*.jar"/>
+			</webinf>					
+			<!-- Include the compiled classes -->
+			<classes dir="${target.classes.java.dir}"/>
+			<lib dir="${lib.dir}">
+				<!-- The servlet container provides the Servlet API -->
+				<exclude name="servlet.jar"/>
+			</lib>
+		</war>
+	</target>
+	
+<!-- TESTING TARGETS -->
+
+	<target name="test" description="run junit tests" depends="compile">
+		<mkdir dir="${target.report.dir}"/>
+		
+		<junit printsummary="yes" haltonerror="true" failureproperty="test.failed" 
+			errorproperty="test.errored" fork="yes" timeout="10000">
+			<jvmarg value="-Djava.compiler=NONE"/>
+			<classpath refid="test-classpath" />
+			<!-- <formatter type="brief" usefile="false" /> -->
+			<formatter type="xml" />
+			<batchtest fork="yes" todir="${target.report.dir}">
+				<fileset dir="${src.test.dir}">
+					<include name="**/*Test.java"/>
+					<exclude name="**/Test*All.java"/>
+				</fileset>
+			</batchtest>		
+		</junit>
+		<fail message="Tests errored: check test reports." if="test.errored" />
+		<fail message="Tests failed: check test reports." if="test.failed" />
+	</target>
+
+<!-- TOMCAT DEPLOYMENT TARGETS -->
+
+	<target name="webapp_install" description="Install application in tomcat" depends="warfile">
+		<webapp_deploy url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}"
+			path="/${war.name}"
+			war="file:${basedir}/${dist.dir}/${war.name}.war"/>
+	</target>
+
+	
+	<target name="webapp_complete_install" description="Complete installation in tomcat" depends="warfile,webapp_remove">
+		<webapp_deploy url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}"
+			path="/${war.name}"
+			war="file:${basedir}/${dist.dir}/${war.name}.war"/>
+	</target>
+
+	
+	<target name="webapp_remove" description="Remove application in tomcat" depends="webapp_stop">
+		<webapp_remove url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}"
+			path="/${war.name}" />
+	</target>
+
+	
+	<target name="webapp_reload" description="Reload application in tomcat" depends="warfile">
+			<webapp_reload url="${tomcat.manager.url}"
+				username="${tomcat.manager.username}"
+				password="${tomcat.manager.password}"
+				path="/${war.name}" />
+	</target>
+	
+	
+	<target name="webapp_stop" description="Stop application in tomcat">
+		<webapp_stop url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}"
+			path="/${war.name}" />
+	</target>
+
+	
+	<target name="webapp_start" description="Start application in tomcat" depends="warfile">
+		<webapp_start url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}"
+			path="/${war.name}" />
+	</target>
+
+	
+	<target name="webapp_list" description="List application in tomcat">
+		<webapp_list url="${tomcat.manager.url}"
+			username="${tomcat.manager.username}"
+			password="${tomcat.manager.password}" />
+	</target>
+
+<!-- INFORMATION TARGETS -->
+
+	<target name="env">	
+		<echo message="Deployment properties: " />
+		<echo message=""/>
+		<echo message="tomcat.home : ${tomcat.home}" />
+		<echo message="tomcat.manager.url : ${tomcat.manager.url}" />
+		<echo message="tomcat.manager.username : ${tomcat.manager.username}" />
+		<echo message="tomcat.manager.password : ${tomcat.manager.password}" />
+		<echo message=""/>		
+	</target>
+	
+	
+	<target name="usage">
+		<echo message=""/>
+		<echo message="Available targets are:"/>
+		<echo message=""/>
+		<echo message="clean   						--> Clean output dirs"/>
+		<echo message="compile    					--> Compile main Java sources and copy libraries"/>
+		<echo message="test	    					--> Execute jUnit tests"/>
+		<echo message="warfile  					--> Create WAR deployment unit"/>
+		<echo message="webapp_install 				--> Install application on tomcat"/>
+		<echo message="webapp_remove 				--> Remove application on tomcat"/>
+		<echo message="webapp_reload  				--> Reload application on tomcat"/>
+		<echo message="webapp_stop  				--> Stop application on tomcat"/>
+		<echo message="webapp_start  				--> Start application on tomcat"/>
+		<echo message="webapp_list  				--> List applications on tomcat"/>	
+		<echo message="webapp_complete_install  	--> Complete installation on tomcat"/>		
+		<echo message=""/>
+	</target>
+	
+	<!-- AUTO DEPLOY LIVE, INCLUDES: -->	
+	<!-- MAVERICK SCRIPTS THAT WILL BACK UP APP, UPLOAD WAR FILE, REMOVE APP, DEPLOY, REMOVE HIBERNATE AND FOLDERS, COPY BACK FOLDERS AND CHOWN -->	
+		
+		<target name="mav_get_postfix_live" description="Backup application and last war file - Live" >
+				<tstamp/>
+				<property name="postfix"   value="${DSTAMP}_${TSTAMP}"/>
+				<echo message="STEP 1 -${postfix}" />
+				<echo message="setting timestamp"/>
+				
+		</target>
+		<target name="mav_remote_backup_live" description="Backup application and last war file - Live" depends="mav_get_postfix_live">
+			<tstamp/>
+			
+			<echo message="${postfix}" />
+			<echo message="STEP 2 - Backing up the live application"/>
+			<ssh host="${remote.tomcat.host}" 
+				port="${remote.ssh.port}"								
+				 username="${remote.tomcat.user}" 
+				 password="${remote.tomcat.pass}">	
+				<exec cmd="cp -Rp ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live} ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}" />
+				<exec cmd="cp -Rp ${remote.tomcat.base.dir}/${remote.tomcat.app.name.live}.war ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}.war_${postfix}" />
+				<exec cmd="ls -l --color=never ${remote.tomcat.backup.dir}"/>	
+			</ssh>
+		</target>
+		
+		<target name="mav_upload_live" description="Upload war file - live">
+			<echo message="STEP 3 - Uploading the live war file"/>
+			<ssh host="${remote.tomcat.host}" 
+						port="${remote.ssh.port}"								
+						 username="${remote.tomcat.user}" 
+						 password="${remote.tomcat.pass}">	
+				<sftp action="put" 
+				      remotedir="${remote.tomcat.base.dir}"
+				      verbose="true">
+				   <fileset dir="${dist.dir}">
+				       <include name="*.war"/>
+				   </fileset>
+				</sftp>
+			</ssh>
+		</target>
+		
+		<target name="mav_remove_app_live" description="Remove the application - live">
+			<echo message="STEP 4 - Remove the application - live"/>
+			<echo message="Copy the war file to webapps - live"/>
+				<ssh host="${remote.tomcat.host}" 
+							port="${remote.ssh.port}"									
+							 username="${remote.tomcat.user}" 
+							 password="${remote.tomcat.pass}">	
+				<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+				<exec cmd="rm -Rf ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}.war" />
+				<exec cmd="rm -Rf ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />
+				<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />	
+				</ssh>
+		</target>
+		<target name="mav_copy_war_file_to_webapps_live" description="copy war file to webapps - live">
+				<echo message="STEP 5 - copy war file to webapps - live"/>
+						<ssh host="${remote.tomcat.host}" 
+							port="${remote.ssh.port}"											
+							 username="${remote.tomcat.user}" 
+							 password="${remote.tomcat.pass}">	
+						<exec cmd="cd ${remote.tomcat.base.dir}" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.base.dir}" />
+						<exec cmd="cp -Rp ${remote.tomcat.app.name.live}.war ${remote.tomcat.webapps.dir}" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+					</ssh>
+		</target>
+		<target name="mav_remove_folders_live" description="Remove folders from exploded war - live">
+				<echo message="STEP 6 - Remove folders from exploded war - live"/>
+	 				<sleep seconds="60"/>
+					<ssh host="${remote.tomcat.host}" 
+								port="${remote.ssh.port}"										
+								 username="${remote.tomcat.user}" 
+								 password="${remote.tomcat.pass}">	
+					<exec cmd="cd ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />	
+					<exec cmd="rm -Rf css" />
+					<exec cmd="rm -Rf csv" />
+					<exec cmd="rm -Rf doc" />
+					<exec cmd="rm -Rf documents" />
+					<exec cmd="rm -Rf files" />
+					<exec cmd="rm -Rf graphics" />
+					<exec cmd="rm -Rf sql_files" />
+					<exec cmd="rm -Rf theme" />
+					<exec cmd="rm -Rf upload" />
+					<exec cmd="rm -Rf webpages" />
+					<exec cmd="rm -Rf xml_config" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />	
+					<exec cmd="cd ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes" />
+					<exec cmd="rm -Rf hibernate.cfg.xml" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes" />					
+					</ssh>
+			</target>
+		
+			<target name="mav_copy_folders_from_backup_live" description="copy folders from backup - live">
+					<echo message="STEP 7 - copy back folders from backup - live"/>
+					<echo message="${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}" />
+						<ssh host="${remote.tomcat.host}" 
+									port="${remote.ssh.port}"											
+									 username="${remote.tomcat.user}" 
+									 password="${remote.tomcat.pass}">	
+						<exec cmd="cd ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}" />
+						<exec cmd="cp -Rp css ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/css" />
+						<exec cmd="cp -Rp csv ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/csv" />
+						<exec cmd="cp -Rp doc ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/doc" />
+						<exec cmd="cp -Rp documents ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/documents" />
+						<exec cmd="cp -Rp files ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/files" />
+						<exec cmd="cp -Rp graphics ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/graphics" />
+						<exec cmd="cp -Rp sql_files ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/sql_files" />
+						<exec cmd="cp -Rp theme ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/theme" />
+						<exec cmd="cp -Rp upload ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/upload" />
+						<exec cmd="cp -Rp webpages ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/webpages" />
+						<exec cmd="cp -Rp xml_config ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/xml_config" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />
+						<exec cmd="cd ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}/WEB-INF/classes" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}/WEB-INF/classes" />
+						<exec cmd="cp -Rp hibernate.cfg.xml ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes/hibernate.cfg.xml" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes" />
+						</ssh>
+			</target>
+
+			<target name="mav_chown_live" description="chown for application - live">
+				<echo message="STEP 8 - chown for applicatio - live"/>
+					<ssh host="${remote.tomcat.host}" 
+						port="${remote.ssh.port}"										
+						 username="${remote.tomcat.user}" 
+						 password="${remote.tomcat.pass}">	
+					<exec cmd="cd ${remote.tomcat.webapps.dir}" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+					<exec cmd="chown -R ${remote.tomcat.owner}:${remote.tomcat.group} ${remote.tomcat.app.name.live}" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+				</ssh>
+			</target>
+		
+		<target name="LIVE_AUTO_DEPLOY_run_everything" description="Auto Deploy - live" depends="mav_remote_backup_live,mav_upload_live,mav_remove_app_live,mav_copy_war_file_to_webapps_live,mav_remove_folders_live,mav_copy_folders_from_backup_live,mav_chown_live"  >
+		<echo message="STEP 9 - Run Everything is completed - live"/>
+			<echo message="${postfix}" />
+			<echo message="Auto Deploy - live"/>
+				<ssh host="${remote.tomcat.host}" 
+					port="${remote.ssh.port}"									
+					 username="${remote.tomcat.user}" 
+					 password="${remote.tomcat.pass}">	
+				<exec cmd="cd ${remote.tomcat.webapps.dir}" />
+				<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+			</ssh>
+		</target>
+	
+	<target name="LIVE_AUTO_1_3" description="Auto Deploy - live" depends="mav_remote_backup_live,mav_upload_live"  >
+	<echo message="STEPS 1-3 back up and upload war file"/>
+		<echo message="${postfix}" />
+		<echo message="Auto Deploy - live"/>
+			<ssh host="${remote.tomcat.host}" 
+				 username="${remote.tomcat.user}" 
+				 password="${remote.tomcat.pass}">	
+			<exec cmd="cd ${remote.tomcat.webapps.dir}" />
+			<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+		</ssh>
+	</target>
+	
+	<target name="LIVE_AUTO_4_9" description="Auto Deploy - live" depends="mav_remove_app_live,mav_copy_war_file_to_webapps_live,mav_remove_folders_live,mav_copy_folders_from_backup_live,mav_chown_live"  >
+	<echo message="STEPS 4- 9 - deploy"/>
+		<echo message="${postfix}" />
+		<echo message="Auto Deploy - live"/>
+			<ssh host="${remote.tomcat.host}" 
+				 username="${remote.tomcat.user}" 
+				 password="${remote.tomcat.pass}">	
+			<exec cmd="cd ${remote.tomcat.webapps.dir}" />
+			<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+		</ssh>
+	</target>
+		
+	<target name="cloud_step1_get_postfix_live" description="Backup application and last war file - Cloud" >
+			<tstamp/>
+			<property name="postfix"   value="${DSTAMP}_${TSTAMP}"/>
+			<echo message="STEP 1 -${postfix}" />
+			<echo message="setting timestamp"/>
+			
+	</target>
+	<target name="cloud_step2_remote_backup_live" description="Backup application and last war file - cloud" depends="cloud_step1_get_postfix_live">
+		<tstamp/>
+		
+		<echo message="${postfix}" />
+		<echo message="STEP 2 - Backing up the live application"/>
+		<ssh host="${remote.tomcat.host}" 
+							 port="${remote.ssh.port}"
+							 username="${remote.tomcat.user}" 
+							 keyfile="${remote.tomcat.keyfile}">
+			<exec cmd="sudo cp -Rp ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live} ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}" />
+			<exec cmd="sudo cp -Rp ${remote.tomcat.base.dir}/${remote.tomcat.app.name.live}.war ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}.war_${postfix}" />
+			<exec cmd="ls -l --color=never ${remote.tomcat.backup.dir}"/>	
+		</ssh>
+	</target>
+	
+	<target name="cloud_step3_upload_live" description="Upload war file - cloud">
+		<echo message="STEP 3 - Uploading the live war file"/>
+		<ssh host="${remote.tomcat.host}" 
+					 port="${remote.ssh.port}"
+					 username="${remote.tomcat.user}" 
+					 keyfile="${remote.tomcat.keyfile}">	
+			<!-- <exec cmd = "scp -i ${remote.tomcat.keyfile} -r ${dist.dir}*.war ${remote.tomcat.user}@${remote.tomcat.host}:/home/ubuntu/"/> -->
+			<sftp action="put" 
+							      remotedir="${remote.tomcat.base.dir}/home/ubuntu"
+							      verbose="true">
+							   <fileset dir="${dist.dir}">
+							       <include name="*.war"/>
+							   </fileset>
+							</sftp>
+		</ssh>
+	</target>
+	
+	<target name="cloud_step4_remove_app" description="Remove the application - cloud">
+		<echo message="STEP 4 - Remove the application - live"/>
+		<echo message="Copy the war file to webapps - live"/>
+			<ssh host="${remote.tomcat.host}" 
+						 port="${remote.ssh.port}"
+						 username="${remote.tomcat.user}" 
+						keyfile="${remote.tomcat.keyfile}">	
+				<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+				<exec cmd="sudo rm -Rf ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}.war" />
+				<exec cmd="sudo rm -Rf ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />
+				<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />	
+			</ssh>
+	</target>
+	<target name="cloud_step5_copy_war_file_to_webapps" description="copy war file to webapps - cloud">
+			<echo message="STEP 5 - copy war file to webapps - live"/>
+					<ssh host="${remote.tomcat.host}" 
+						 port="${remote.ssh.port}"
+						 username="${remote.tomcat.user}" 
+						keyfile="${remote.tomcat.keyfile}">
+						<exec cmd="cd ${remote.tomcat.base.dir}" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.base.dir}" />
+						<exec cmd="sudo cp -Rp ${remote.tomcat.app.name.live}.war ${remote.tomcat.webapps.dir}" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+
+				</ssh>
+	</target>
+	
+	<target name="cloud_step6_remove_folders" description="Remove folders from exploded war - cloud">
+			<echo message="STEP 6 - Remove folders from exploded war - live"/>
+		 		<sleep seconds="60"/>	
+				<ssh host="${remote.tomcat.host}" 
+							 port="${remote.ssh.port}"
+		 					username="${remote.tomcat.user}" 
+						    keyfile="${remote.tomcat.keyfile}">
+					<exec cmd="cd ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />	
+					<exec cmd="sudo rm -Rf css" />
+					<exec cmd="sudo rm -Rf csv" />
+					<exec cmd="sudo rm -Rf doc" />
+					<exec cmd="sudo rm -Rf documents" />
+					<exec cmd="sudo rm -Rf files" />
+					<exec cmd="sudo rm -Rf graphics" />
+					<exec cmd="sudo rm -Rf sql_files" />
+					<exec cmd="sudo rm -Rf theme" />
+					<exec cmd="sudo rm -Rf upload" />
+					<exec cmd="sudo rm -Rf webpages" />
+					<exec cmd="sudo rm -Rf xml_config" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />	
+					<exec cmd="cd ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes" />
+					<exec cmd="sudo rm -Rf hibernate.cfg.xml" />
+					<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes" />					
+				</ssh>
+		</target>
+	
+		<target name="cloud_step7_copy_folders_from_backup" description="copy folders from backup - cloud">
+				<echo message="STEP 7 - copy back folders from backup - live"/>
+				<echo message="${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}" />
+					<ssh host="${remote.tomcat.host}" 
+								 port="${remote.ssh.port}"
+								 username="${remote.tomcat.user}" 
+						        keyfile="${remote.tomcat.keyfile}">
+						<exec cmd="cd ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}" />
+						<exec cmd="sudo cp -Rp css ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/css" />
+						<!-- <exec cmd="cp -Rp csv ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/csv" /> -->
+						<exec cmd="sudo cp -Rp doc ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/doc" />
+						<exec cmd="sudo cp -Rp documents ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/documents" />
+						<exec cmd="sudo cp -Rp files ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/files" />
+						<exec cmd="sudo cp -Rp graphics ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/graphics" />
+						<exec cmd="sudo cp -Rp sql_files ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/sql_files" />
+						<exec cmd="sudo cp -Rp theme ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/theme" />
+						<exec cmd="sudo cp -Rp upload ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/upload" />
+						<exec cmd="sudo cp -Rp webpages ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/webpages" />
+						<exec cmd="sudo cp -Rp xml_config ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/xml_config" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}" />
+						<exec cmd="cd ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}/WEB-INF/classes" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.backup.dir}/${remote.tomcat.app.name.live}_${postfix}/WEB-INF/classes" />
+						<exec cmd="sudo cp -Rp hibernate.cfg.xml ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes/hibernate.cfg.xml" />
+						<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}/${remote.tomcat.app.name.live}/WEB-INF/classes" />
+					</ssh>
+		</target>
+
+		<target name="cloud_step8_chown" description="chown for application - cloud">
+			<echo message="STEP 8 - chown for application - live"/>
+				<ssh host="${remote.tomcat.host}" 
+					 port="${remote.ssh.port}"
+					 username="${remote.tomcat.user}" 
+					 keyfile="${remote.tomcat.keyfile}">	
+				<exec cmd="cd ${remote.tomcat.webapps.dir}" />
+				<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+				<exec cmd="sudo chown -R ${remote.tomcat.owner}:${remote.tomcat.group} ${remote.tomcat.app.name.live}" />
+				<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+			</ssh>
+		</target>
+	
+
+
+	<target name="CLOUD_DEPLOY_run_4_9" description="Auto Deploy - cloud" depends="cloud_step4_remove_app,cloud_step5_copy_war_file_to_webapps,cloud_step6_remove_folders,cloud_step7_copy_folders_from_backup,cloud_step8_chown"  >
+	<echo message="STEPS 4_9- complete the deploy, set the postfix value and run"/>
+		<echo message="${postfix}" />
+		<echo message="Auto Deploy - live"/>
+			<ssh host="${remote.tomcat.host}" 
+				 username="${remote.tomcat.user}" 
+				 keyfile="${remote.tomcat.keyfile}">
+			<exec cmd="cd ${remote.tomcat.webapps.dir}" />
+			<exec cmd="ls -l --color=never ${remote.tomcat.webapps.dir}" />
+		</ssh>
+	</target>
+		
+
+	
+</project>

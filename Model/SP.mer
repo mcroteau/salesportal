@@ -1,0 +1,1705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ERDiagram version="1.1">
+  <Connection session="dura_sp_isp4" database="public" />
+  <Drawing gridVisible="false" snapOn="false" fastRouting="false" labelsVisible="true" />
+  <Tables>
+    <Table name="action">
+      <Drawing expanded="true" location="309,1342" dimensions="270,151" />
+      <Columns>
+        <Column name="action_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="action" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="mandatory_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="color" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="email_draft_to_use" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="display_for_salesmen" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="application_group">
+      <Drawing expanded="true" location="2138,2482" dimensions="239,71" />
+      <Columns>
+        <Column name="app_group_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="app_desc" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="audit_round_robin">
+      <Drawing expanded="true" location="1701,1894" dimensions="299,151" />
+      <Columns>
+        <Column name="audit_rr_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="prosect_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="user_id_making_change" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="external_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="25" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="campaign">
+      <Drawing expanded="true" location="2272,1538" dimensions="284,191" />
+      <Columns>
+        <Column name="campaign_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="campaign" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="80" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="created_by_user" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="update_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="updated_by_user" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="200" />
+        </Column>
+        <Column name="display_for_salesmen" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="campaign_sales_action">
+      <Drawing expanded="true" location="1165,1538" dimensions="337,211" />
+      <Columns>
+        <Column name="campaign_sales_action_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="campaign_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="sales_action_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="display_sequence" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="created_by_user" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="update_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="updated_by_user" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="send_email_days" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="commision">
+      <Drawing expanded="true" location="931,0" dimensions="305,591" />
+      <Columns>
+        <Column name="commision_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="250" />
+        </Column>
+        <Column name="amount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10,4" />
+        </Column>
+        <Column name="date_sold" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="date" size="4" />
+        </Column>
+        <Column name="date_billed" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="date" size="4" />
+        </Column>
+        <Column name="date_paid" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="date" size="4" />
+        </Column>
+        <Column name="check_number" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="check_amount" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10,4" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="commission_prospect_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="commission_currency_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="po_number" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="internal_description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="date1" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="date2" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="date3" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="date4" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="date5" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="yes_no1" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="25" />
+        </Column>
+        <Column name="drop_down1_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="numeric1" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10,2" />
+        </Column>
+        <Column name="oep_transactionid" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="12" />
+        </Column>
+        <Column name="oep_line" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="12" />
+        </Column>
+        <Column name="oep_item_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="150" />
+        </Column>
+        <Column name="total_units" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="total_units_closed" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="total_units_in_process" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="company">
+      <Drawing expanded="true" location="1175,2326" dimensions="231,111" />
+      <Columns>
+        <Column name="company_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="company" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="80" />
+        </Column>
+        <Column name="time_offset_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="date_format_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="11" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="contact">
+      <Drawing expanded="true" location="0,0" dimensions="228,211" />
+      <Columns>
+        <Column name="contact_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="prospect_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="contact_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="contact_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="phone_ext" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="5" />
+        </Column>
+        <Column name="cell_phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="fax" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="country">
+      <Drawing expanded="true" location="1357,1362" dimensions="228,91" />
+      <Columns>
+        <Column name="country_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="country" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="country_code" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="3" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="currency">
+      <Drawing expanded="true" location="984,1894" dimensions="301,171" />
+      <Columns>
+        <Column name="currency_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="currency_code" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="6" />
+        </Column>
+        <Column name="currency_description" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="created_by_user" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="update_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="updated_by_user" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="custom_query">
+      <Drawing expanded="true" location="383,1709" dimensions="334,111" />
+      <Columns>
+        <Column name="custom_query_no" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="custom_query_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="custom_query_file_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="custom_query_description" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="custom_query_users">
+      <Drawing expanded="true" location="419,1538" dimensions="262,71" />
+      <Columns>
+        <Column name="custom_query_no" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="date_format">
+      <Drawing expanded="true" location="1557,2482" dimensions="246,71" />
+      <Columns>
+        <Column name="date_format_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="date_format" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="15" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="document">
+      <Drawing expanded="true" location="2124,191" dimensions="257,191" />
+      <Columns>
+        <Column name="document_id" primary_key="true" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="document_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="file_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="150" />
+        </Column>
+        <Column name="file_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="4" />
+        </Column>
+        <Column name="description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="500" />
+        </Column>
+        <Column name="external_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="25" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="creation_user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="edi_detail">
+      <Drawing expanded="true" location="963,2160" dimensions="264,91" />
+      <Columns>
+        <Column name="edi_detail_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="edi_header_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="edi_detail_content" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="2000" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="edi_group">
+      <Drawing expanded="true" location="2462,191" dimensions="244,191" />
+      <Columns>
+        <Column name="edi_group_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="uploaded_by" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="upload_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="filename" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="downloaded" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="downloaded_by" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="download_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="order_list" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="edi_group_control">
+      <Drawing expanded="true" location="913,2482" dimensions="297,71" />
+      <Columns>
+        <Column name="edi_group_control_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="edi_group_control_number" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="edi_header">
+      <Drawing expanded="true" location="2448,0" dimensions="272,91" />
+      <Columns>
+        <Column name="edi_header_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="edi_group_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="edi_header_content" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="2000" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="edi_interchange_control">
+      <Drawing expanded="true" location="531,2482" dimensions="337,71" />
+      <Columns>
+        <Column name="edi_interchange_control_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="edi_interchange_control_number" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="email_campaign">
+      <Drawing expanded="true" location="762,1538" dimensions="358,211" />
+      <Columns>
+        <Column name="email_campaign_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="campaign_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_campaign_description" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="verified_yes_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="use_salesman_from_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="start_email_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="end_email_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="use_campaign_start_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="email_queue_audit">
+      <Drawing expanded="true" location="1547,1538" dimensions="305,211" />
+      <Columns>
+        <Column name="email_queue_audit_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="prospect_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="webprofile_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_draft_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="export_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="return_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="file_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="email_sales_action">
+      <Drawing expanded="true" location="1897,1538" dimensions="330,191" />
+      <Columns>
+        <Column name="email_action_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_action_description" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="email_draft_to_use" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="verified_yes_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="use_salesman_from_email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="send_email_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="actual_email_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="email_sales_action_lobs">
+      <Drawing expanded="true" location="2576,2130" dimensions="251,111" />
+      <Columns>
+        <Column name="email_lob_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_action_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="lob_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_campaign_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="email_sales_action_sent_prospects">
+      <Drawing expanded="true" location="1629,2130" dimensions="298,111" />
+      <Columns>
+        <Column name="sent_email_action_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_action_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="prospect_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="sent_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="email_sales_action_statuses">
+      <Drawing expanded="true" location="0,2326" dimensions="251,111" />
+      <Columns>
+        <Column name="email_status_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_action_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="status_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_campaign_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="email_sales_action_territories">
+      <Drawing expanded="true" location="1972,2130" dimensions="260,111" />
+      <Columns>
+        <Column name="email_territory_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_action_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_campaign_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="email_template">
+      <Drawing expanded="true" location="285,2130" dimensions="302,131" />
+      <Columns>
+        <Column name="email_template_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="user_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="email_template_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="description" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="200" />
+        </Column>
+        <Column name="text" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="2000" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="label">
+      <Drawing expanded="true" location="0,2482" dimensions="231,91" />
+      <Columns>
+        <Column name="label_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="label_default" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="40" />
+        </Column>
+        <Column name="label_actual" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="40" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="lob">
+      <Drawing expanded="true" location="720,2618" dimensions="174,71" />
+      <Columns>
+        <Column name="lob_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="lob" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="80" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="migration_log">
+      <Drawing expanded="true" location="0,1894" dimensions="283,191" />
+      <Columns>
+        <Column name="migration_log_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="12" />
+        </Column>
+        <Column name="migration_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_result" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_tag" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_timestamp" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="application" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_sub_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="migration_log_dm">
+      <Drawing expanded="true" location="328,1894" dimensions="283,191" />
+      <Columns>
+        <Column name="migration_log_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int4" size="4" />
+        </Column>
+        <Column name="migration_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="application" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_sub_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_result" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_tag" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_timestamp" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="migration_log_sp">
+      <Drawing expanded="true" location="656,1894" dimensions="283,191" />
+      <Columns>
+        <Column name="migration_log_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int4" size="4" />
+        </Column>
+        <Column name="migration_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="application" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_sub_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_result" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_tag" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="migration_timestamp" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="note">
+      <Drawing expanded="true" location="328,40" dimensions="233,131" />
+      <Columns>
+        <Column name="note_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="prospect_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="user_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="note_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="note" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="2000" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="prospect">
+      <Drawing expanded="true" location="273,311" dimensions="343,931" />
+      <Columns>
+        <Column name="prospect_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="company_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="system_type_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="lob_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="software_type_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="verified_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="size_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="status_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="customer_company" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="address" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="address2" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="city" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="county" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="zip" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="15" />
+        </Column>
+        <Column name="state_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="country_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="contact_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="contact_title" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="phone_ext" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="cell_phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="website" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="fax" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="size" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="system_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="ssa" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="sic" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="hardmnt" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="change_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="creation_user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="change_user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="next_action_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="next_action_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="next_sales_action_flag" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="next_action_hour" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="2" />
+        </Column>
+        <Column name="next_action_minute" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="2" />
+        </Column>
+        <Column name="next_action_am_pm" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="2" />
+        </Column>
+        <Column name="external_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="25" />
+        </Column>
+        <Column name="territory_changed_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="territory_assigned_on_creation" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="activity_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="optout_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="prospect_campaign">
+      <Drawing expanded="true" location="1272,2130" dimensions="312,111" />
+      <Columns>
+        <Column name="prospect_campaign_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="campaign_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="prospect_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="prospect_document">
+      <Drawing expanded="true" location="2101,0" dimensions="302,91" />
+      <Columns>
+        <Column name="prospect_document_id" primary_key="true" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="document_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="prospect_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="prospect_import_log">
+      <Drawing expanded="true" location="1330,1894" dimensions="326,151" />
+      <Columns>
+        <Column name="prospect_import_log_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int4" size="4" />
+        </Column>
+        <Column name="action_taken" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="external_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="prospect_import_timestamp" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="prospect_sales_action">
+      <Drawing expanded="true" location="0,1538" dimensions="338,311" />
+      <Columns>
+        <Column name="prospect_sales_action_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="prospect_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="sales_action_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="action_priority" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="2" />
+        </Column>
+        <Column name="action_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="action_note" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="200" />
+        </Column>
+        <Column name="prospect_campaign_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="prospect_campaign_sequence" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="action_status" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="action_notification_flag" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="change_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="changed_by_user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="email_draft_to_use" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="security_actions">
+      <Drawing expanded="true" location="0,2130" dimensions="240,151" />
+      <Columns>
+        <Column name="sec_act_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="action_desc" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="action_category" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="entry_point" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="comments" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="500" />
+        </Column>
+        <Column name="app_group_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="security_auth">
+      <Drawing expanded="true" location="1451,2326" dimensions="222,111" />
+      <Columns>
+        <Column name="auth_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="sec_profile_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="sec_act_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="sec_code" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="1" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="security_profile">
+      <Drawing expanded="true" location="886,2326" dimensions="244,111" />
+      <Columns>
+        <Column name="sec_profile_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="sec_desc" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="500" />
+        </Column>
+        <Column name="sec_short_desc" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="app_group_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="size">
+      <Drawing expanded="true" location="495,2618" dimensions="180,71" />
+      <Columns>
+        <Column name="size_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="size" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="software_type">
+      <Drawing expanded="true" location="1255,2482" dimensions="257,71" />
+      <Columns>
+        <Column name="software_type_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="software_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="80" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="state">
+      <Drawing expanded="true" location="1548,921" dimensions="209,111" />
+      <Columns>
+        <Column name="state_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="state" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="state_code" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="2" />
+        </Column>
+        <Column name="country_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="6" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="status">
+      <Drawing expanded="true" location="254,2618" dimensions="196,71" />
+      <Columns>
+        <Column name="status_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="status" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="system_type">
+      <Drawing expanded="true" location="1848,2482" dimensions="245,71" />
+      <Columns>
+        <Column name="system_type_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="system_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="80" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="territory">
+      <Drawing expanded="true" location="1336,160" dimensions="322,271" />
+      <Columns>
+        <Column name="territory_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="territory" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="80" />
+        </Column>
+        <Column name="owner_user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="sales_manager_user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="service_manager_user_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="return_territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="return_time" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="random_sequence" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="max_prospect_display" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="include_in_conversion_report" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="include_in_round_robin" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="round_robin_selected" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="territory_change">
+      <Drawing expanded="true" location="2386,1894" dimensions="290,151" />
+      <Columns>
+        <Column name="territory_change_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="original_territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="new_territory_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="change_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="auto_territory_change" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="territory_zips">
+      <Drawing expanded="true" location="2014,2326" dimensions="249,91" />
+      <Columns>
+        <Column name="territory_zip_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="zip" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="20" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="time_offset">
+      <Drawing expanded="true" location="2422,2482" dimensions="238,71" />
+      <Columns>
+        <Column name="time_offset_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="time_offset" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="user_company_relation">
+      <Drawing expanded="true" location="2277,2130" dimensions="254,111" />
+      <Columns>
+        <Column name="company_rel_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="customer_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="company_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="relationship" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="bpchar" size="1" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="user_customer_relation">
+      <Drawing expanded="true" location="632,2130" dimensions="256,131" />
+      <Columns>
+        <Column name="customer_rel_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="customer_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="customer_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="10" />
+        </Column>
+        <Column name="company_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="relationship" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="bpchar" size="1" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="user_installer_relation">
+      <Drawing expanded="true" location="592,2326" dimensions="249,111" />
+      <Columns>
+        <Column name="installer_rel_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="customer_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="installer_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="relationship" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="bpchar" size="1" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="user_lobs">
+      <Drawing expanded="true" location="276,2482" dimensions="210,91" />
+      <Columns>
+        <Column name="user_lob_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="lob_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="user_statuses">
+      <Drawing expanded="true" location="2589,2326" dimensions="232,91" />
+      <Columns>
+        <Column name="user_status_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="status_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="user_territories">
+      <Drawing expanded="true" location="1718,2326" dimensions="251,91" />
+      <Columns>
+        <Column name="user_territory_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="user_territory_relation">
+      <Drawing expanded="true" location="296,2326" dimensions="251,111" />
+      <Columns>
+        <Column name="territory_rel_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="customer_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="territory_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="relationship" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="bpchar" size="1" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="user_type">
+      <Drawing expanded="true" location="2308,2326" dimensions="236,91" />
+      <Columns>
+        <Column name="user_type_pk" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="500" />
+        </Column>
+        <Column name="short_desc" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="verified">
+      <Drawing expanded="true" location="0,2618" dimensions="209,71" />
+      <Columns>
+        <Column name="verified_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="verified" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="website">
+      <Drawing expanded="true" location="661,50" dimensions="225,111" />
+      <Columns>
+        <Column name="website_id" primary_key="true" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="prospect_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="url" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="250" />
+        </Column>
+        <Column name="description" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="500" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="webuser">
+      <Drawing expanded="true" location="1131,691" dimensions="317,571" />
+      <Columns>
+        <Column name="user_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="user_type" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="active" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="user_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="password" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="20" />
+        </Column>
+        <Column name="company_id" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="system_type_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="lob_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="software_type_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="verified_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="status_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="size_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="state_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="country_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="first_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="last_name" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="100" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="change_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="allow_cal_of_all_territories" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="time_offset_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="date_format_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="11" />
+        </Column>
+        <Column name="specific_territories" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="specific_statuses" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="specific_lobs" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="limit_view" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="webuser_dm">
+      <Drawing expanded="true" location="2045,1894" dimensions="296,151" />
+      <Columns>
+        <Column name="user_no" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="active" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="user_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="user_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="password" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="20" />
+        </Column>
+        <Column name="default_conversion_class" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="webuser_ip">
+      <Drawing expanded="true" location="1802,0" dimensions="254,631" />
+      <Columns>
+        <Column name="customer_no" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="user_type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="3" />
+        </Column>
+        <Column name="user_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="password" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="20" />
+        </Column>
+        <Column name="active" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="1" />
+        </Column>
+        <Column name="first_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="last_name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="address" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="50" />
+        </Column>
+        <Column name="city" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="zip" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="15" />
+        </Column>
+        <Column name="state_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="country_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="phone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="15" />
+        </Column>
+        <Column name="company" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="80" />
+        </Column>
+        <Column name="exported" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="bpchar" size="1" />
+        </Column>
+        <Column name="no_of_stores" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="6" />
+        </Column>
+        <Column name="resale_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="30" />
+        </Column>
+        <Column name="ref_cust_no" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+        <Column name="fax" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="15" />
+        </Column>
+        <Column name="system_type_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="territory_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="lob_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="software_type_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="verified_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="status_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="5" />
+        </Column>
+        <Column name="creation_date" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="last_logged" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="timestamp" size="8" />
+        </Column>
+        <Column name="logon_counter" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="9" />
+        </Column>
+        <Column name="sec_profile_fk" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+  </Tables>
+  <Relationships>
+    <Relationship name="">
+      <Details primary_table="webuser" foreign_table="commision">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="prospect" foreign_table="contact">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="custom_query" foreign_table="custom_query_users">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="edi_detail" foreign_table="edi_detail">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="edi_group" foreign_table="edi_header">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="prospect" foreign_table="note">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="action" foreign_table="prospect">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="document" foreign_table="prospect_document">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="country" foreign_table="state">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="webuser" foreign_table="territory">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="prospect" foreign_table="website">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="">
+      <Details primary_table="country" foreign_table="webuser">
+        <PrimaryKeys>
+          <ColumnName name="" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+  </Relationships>
+</ERDiagram>
+

@@ -1,0 +1,87 @@
+.exception {color:red}
+.success {color:green}
+.note {color: black; font-size:11px; font-style:italic}
+
+
+body {font-family:verdana,arial; font-size:11px; margin: 0px}
+h1 {color:green;font-size:14px; margin-top: 11px;}
+h2 {color:green;font-size:12px}
+h3 {color:green;font-size:11px}
+
+img {border-style:solid; border-width:0px}
+
+table {font-size:11px}
+th {}
+td {}
+
+table.report {font-size:10px;background-color:#c0c0c0; border-collapse:collapse}
+table.report th {padding-bottom:1px;padding-top:1px;padding-right:3px;padding-left:3px; background-color: #d0d0d0; border-color:black; border-style:solid; border-width:1px}
+table.report td {padding-bottom:1px;padding-top:1px;padding-right:3px;padding-left:3px; background-color:#f0f0f0;  border-color:black; border-style:solid; border-width:1px}
+
+table.form {background-color:#f0f0f0; border-style:solid; border-width:1px;}
+table.form th {padding-bottom:1px;padding-top:1px;padding-right:6px;padding-left:6px;border-width:0px}
+table.form td {padding-bottom:1px;padding-top:1px;padding-right:6px;padding-left:6px;border-width:0px}
+
+a:link {color:#0000BB; text-decoration:none}
+a:visited {color:#0000BB; text-decoration:none}
+a:active {color:red; text-decoration:underline;}
+a:hover {color:blue; text-decoration:underline;}
+
+a.button:link {background-color: #c0c9c0; border-style:outset; border-width:2px; color:black; text-decoration:none; height:20px}
+a.button:visited {background-color: #c0c9c0; border-style:outset; border-width:2px; color:black; text-decoration:none; height:20px}
+a.button:active {background-color: #c0c9c0; border-style:inset; border-width:2px; color:black; text-decoration:none; height:20px}
+a.button:hover {background-color: #c0c9c0; border-style:outset; border-width:2px; color:black; text-decoration:none; height:20px}
+
+hr {height:1px; color:#c0c0c0}
+
+input {font-family:verdana,Arial;font-size:11px;}
+select {font-family:verdana,Arial; font-size:11px}
+textarea {font-family:verdana,Arial; font-size:11px}
+
+#list{text-align: left;}
+#flat {border:solid 0px #f0f0f0; background-color: #f0f0f0}
+
+
+tr.row td.row { border-collapse:collapse; #f0f0f0; }
+tr.row:hover td.row, tr.row.highlight td.row {font-weight: bold;}
+
+tr.row td.rowWithButton { border-collapse:collapse; #f0f0f0; }
+tr.row:hover td.rowWithButton, tr.row.highlight td.rowWithButton {font-size: 1.2em;font-weight: bold;}
+
+td.rowWithButton { border-collapse:collapse; background-color: #f0f0f0; }
+td.rowWithButton:hover {background-color: #F0FFFF; border: 1px solid navy;} 
+
+#moreInfo{padding: 10px; width: 90%; font-family: Verdana; font-size: 8pt; border: 1px navy dotted; text-align: left; line-height: 1.5em; margin-bottom: 25px;}
+#moreInfoImport{padding: 10px; width: 90%; font-family: Verdana; font-size: 8pt; border: 1px green dotted; text-align: left; line-height: 1.5em; margin-bottom: 25px;}
+
+ol.moreInfo{padding-top:5px; padding-bottom: 5px; }
+ol.moreInfoImport{font-size: 8pt; font-family: tahoma;}
+
+#description{font-weight:normal; }
+li.moreInfo{font-weight: bold; padding:4px;}
+li.moreInfoImport{font-weight: 600; padding:4px;}
+select.salesmen{min-width: 155px;}
+
+table.import{border: solid 1px green;padding-right:25px; padding-left:25px;margin-top: 15px; paddding-top:5px; padding-bottom: 5px; background-color: #FFF}
+td.importLeft{vertical-align: top; width:600px;}
+
+td.importRight{vertical-align: top; width:220px;}
+a.import{font-size: 8pt; font-weight: bold; text-decoration: underline;}
+a.import:hover{font-size: 8pt; font-weight: bold; text-decoration: none;}
+input.importButton{font-size: 9pt; font-weight: bold; color:#000080; padding:3px;}
+
+p#loading{font-weight: bold; color:red; text-align:center;}
+p.import{line-height: 1.5em; font-size: 10pt; font-family: tahoma; width:420px;}
+
+ol.importAttributes{align: left;}
+li.import{text-align: left; padding:2px; font-size: 8pt; font-family: Tahoma;}
+
+body.import{background-color: #f0f0f0}
+
+
+table.report tr.roweven td, table.report tr.roweven th{background-color:#ffffff;}
+table.report tr.rowodd td, table.report tr.rowodd th{background-color:#f0f0f0;}
+
+table.report tr:hover{font-weight: bold;}
+
+#textRight{text-align: right;}

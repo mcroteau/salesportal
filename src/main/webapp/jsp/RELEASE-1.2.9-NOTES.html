@@ -1,0 +1,105 @@
+<html>
+<head>
+  <style type="text/css"> 
+	body{font-family: Georgia; line-height: 1.5em; width:800px; color:##404040;}
+	h1{text-align:center; font-size:18pt; color:#000080;}
+	h2{text-align:center; font-size:14pt; color:green;}
+	h3{text-align:center; font-size:14pt; color:#000080;}
+	p{margin-left: 30px; margin-right: 30px; }
+	#label{font-weight:bold;}
+	#content{text-align: left;}
+	p.config{font-family: sans-serif;font-style: italic; background-color: #E0EEEE;text-align:center;}
+	#admin{border:dotted 1px #0000ff; background:#f9fbf2; width:95%;padding:10px;margin-top:30px; margin-bottom:30px;}
+	#admin ul li{font-weight: bold;}
+	#admin ol li{font-weight:normal;}
+	#website{border:dotted 1px #0000ff; background:#f9fbf2; width:95%;padding:10px;margin-top:30px; margin-bottom:30px;}
+
+</STYLE>
+</head>
+<body>
+
+<style type="text/css"> 
+	textarea{font-size:8pt; font-family:Georgia; line-height:1.4em; background-color:#efefef;padding:10px; }
+
+</STYLE>
+
+
+<h1>Sales Portal 1.2.9</h1>
+
+<p>Sales Portal 1.2.9 has a number of new features and some fixes that are aimed at helping you to grow your business </p>
+
+<div id="admin">
+
+<ul>
+	<li>Add email draft id to sales actions</li>
+	<li>add background processor that sends list of prospects with email draft to use to OP for automated email send</li>
+	<li>note, op is changed to allow different emails for each prospect</li>
+	<li>Add automated campaign logic:
+	<ol>
+		<li>when you define sales action you define # of days between sales action</li>
+		<li>background processor that adds campaigns to prospects based on automated campaign date range and selection criteria</li>
+	</ol>
+	</li>
+	<li>sales actions - add flag to control if it displays on the prospect add sales action (display for Salesman flag)</li>
+	<li>campaigns - add flag to control if it displays on the prospect add campaign (display for Salesman flag)</li>
+	<li>Allow delete/change of sales action, even if assigned to prospects</li>
+	<li>Allow delete/change of campaign, even if assigned to prospects.</li>
+	<li>Help text on Insert/update sales actions</li>
+	<li>Help text on Insert/Update automated campaigns.</li>
+	<li>Help text on Insert/update email sales actions.</li>
+	<li>Unsubscribe logic in Order Portal is changes, any prospects that unsubscribe the opt out date is
+		 passed back to sales portal and prospect is updated with opt out date</li>
+	<li>All email selection logic will exclude any prospect where opt out date is filled out.</li>
+	<li>automated campaigns - added ability to only select if prospect was created >= campaign start date</li>
+	<li>completed sales actions - added sales action date.</li>
+	<li>fix search error if you put in sales action date and there were no matches, pulled up all prospects(due to eliminate dup logic)
+4/1/09</li>
+	<li>Add a new field, Salesman Name to the autoresponder information sent with email .  This is salesman first name, a space, plus salesman last name</li>
+	<li>Automated Emails and Campaigns the 3 multiple selection fields (territory, lead source and status) did not clear when you selected new options.  This is now fixed.</li>
+	<li>Work with prospects searching.  Added check box to territory, lead source and status.  You can select prospects that do NOT have this field filled out.</li>
+	<li>add in round robin logic</li>
+	<li>Email request responder logic:
+		<ol>
+			<li>When you click on the email link in a prospect, will add cc, bcc, subject, and body.  The values are stored in the Application 			Configuration</li>
+			<li>Added email templates to use for cutting and pasting into response emails.</li>
+		</ol>
+	</li>
+	<li>Security flaw that allowed access to admin for non admin users was identified and is fixed in this release.</li>
+	<li>calendar - on order portal requests when you hover over the link in calendar the question will display</li>
+	<li>new database scripts to run</li>
+	<li>new tags in xml_config/appConfig.xml:	
+<textarea rows="30" cols="100" readonly>
+<!---  replace the following menu options  Email Templates is new--->
+
+	<MENU_OPTIONS_LIST>MODIFY_ACCOUNT,COMMISIONS,NEW_CUSTOMER_ACCOUNT,CUSTOMER_ACCOUNTS,CURRENT_ACTIONS,CALENDAR,REPORTING,CUSTOM_QUERIES,SUPPORT,DOCUMENTS,EMAIL_TEMPLATES,UML,ADMIN,ADMIN_CONFIG,LOGIN</MENU_OPTIONS_LIST>
+
+<!--menu options enabled for user type 1 (Salesman)-->
+<MENU_OPTIONS_ENABLED_1>1,1,1,1,1,1,1,1,1,1,1,0,0,0,1</MENU_OPTIONS_ENABLED_1>
+<MENU_OPTIONS_ENABLED_2>1,1,1,1,1,1,1,1,1,1,1,0,1,1,1</MENU_OPTIONS_ENABLED_2>
+
+<!-- Variables for the email link ---
+<CC_EMAILS></CC_EMAILS>
+<BCC_EMAILS></BCC_EMAILS>
+<INCLUDE_CONTACT_NAME_IN_SUBJECT></INCLUDE_CONTACT_NAME_IN_SUBJECT>
+<SUBJECT_TEXT></SUBJECT_TEXT>
+<BODY_TEXT></BODY_TEXT>
+
+<!-- EMAIL_OPTOUT IMPORT FROM ORDER PORTAL AND OTHER SOURCE VAI DATA MIGRATION PORTAL -->
+<EMAIL_OPTOUT_IMPORT_ENABLED>false</EMAIL_OPTOUT_IMPORT_ENABLED>
+<EMAIL_OPTOUT_IMPORT_SCHEDULE_MINUTES>120</EMAIL_OPTOUT_IMPORT_SCHEDULE_MINUTES>
+<EMAIL_OPTOUT_IMPORT_SCHEDULE_START_TIME />
+<EMAIL_OPTOUT_IMPORT_FILE_PREFIX>email_optout</EMAIL_OPTOUT_IMPORT_FILE_PREFIX>
+<EMAIL_OPTOUT_IMPORT_UNPROCESSED_STORAGE>csv/email_optout</EMAIL_OPTOUT_IMPORT_UNPROCESSED_STORAGE>
+<EMAIL_OPTOUT_IMPORT_PROCESSED_STORAGE>csv/email_optout/processed</EMAIL_OPTOUT_IMPORT_PROCESSED_STORAGE>
+<EMAIL_OPTOUT_IMPORT_INVALID_STORAGE>csv/email_optout/invalid</EMAIL_OPTOUT_IMPORT_INVALID_STORAGE>
+<EMAIL_OPTOUT_IMPORT_LOG>csv/email_optout/log</EMAIL_OPTOUT_IMPORT_LOG>
+
+<!-- AUTOMATED CAMPAIGN SETTINGS SP  -->
+<AUTOMATED_CAMPAIGN_DAYS>7</AUTOMATED_CAMPAIGN_DAYS>
+<AUTOMATED_CAMPAIGN_CREATE_ENABLED>TRUE</AUTOMATED_CAMPAIGN_CREATE_ENABLED>
+<AUTOMATED_CAMPAIGN_CREATE_SCHEDULE_MINUTES>720</AUTOMATED_CAMPAIGN_CREATE_SCHEDULE_MINUTES>
+<AUTOMATED_CAMPAIGN_CREATE_SCHEDULE_START_TIME></AUTOMATED_CAMPAIGN_CREATE_SCHEDULE_START_TIME>
+
+
+</body>
+</html>

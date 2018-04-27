@@ -1,0 +1,1 @@
+select count (*) as count, upper(t.territory) as territory from prospect p inner join territory t on p.territory_id=t.territory_id where website is  not null or website!= 'none' or website!='?' and website != 'n'  Group by upper(t.territory)

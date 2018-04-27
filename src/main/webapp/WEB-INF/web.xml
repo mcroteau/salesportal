@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <!-- Action Servlet Configuration -->
+    <display-name>Sales Portal</display-name>
+    
+    <listener>
+  		<listener-class>com.randr.webdw.startup.ApplicationStartupContextListener</listener-class> 
+  	</listener>
+  	
+  	<servlet>
+        <servlet-name>ProspectSearchReportActions</servlet-name>
+        <servlet-class>com.randr.webdw.reports.prospectSearch.ProspectSearchReportController</servlet-class>
+    </servlet>
+  	
+  	
+    <servlet>
+        <servlet-name>ProspectBackgroundActions</servlet-name>
+        <servlet-class>com.randr.webdw.prospect.ProspectBackgroundProcessor</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ConfigurationsActions</servlet-name>
+        <servlet-class>com.randr.webdw.configurations.ConfigurationsController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CalendarActions</servlet-name>
+        <servlet-class>com.randr.webdw.calendar.CalendarController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>StaticActions</servlet-name>
+        <servlet-class>com.randr.webdw.staticPages.StaticPagesController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UserActions</servlet-name>
+        <servlet-class>com.randr.webdw.user.UserController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CompanyActions</servlet-name>
+        <servlet-class>com.randr.webdw.company.CompanyController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TerritoryActions</servlet-name>
+        <servlet-class>com.randr.webdw.territory.TerritoryController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LobActions</servlet-name>
+        <servlet-class>com.randr.webdw.lob.LobController</servlet-class>
+    </servlet>
+
+	<servlet>
+        <servlet-name>CurrencyActions</servlet-name>
+        <servlet-class>com.randr.webdw.currency.CurrencyController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CountryActions</servlet-name>
+        <servlet-class>com.randr.webdw.country.CountryController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>StatusActions</servlet-name>
+        <servlet-class>com.randr.webdw.status.StatusController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SizeActions</servlet-name>
+        <servlet-class>com.randr.webdw.size.SizeController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>VerifiedActions</servlet-name>
+        <servlet-class>com.randr.webdw.verified.VerifiedController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SystemTypeActions</servlet-name>
+        <servlet-class>com.randr.webdw.systemType.SystemTypeController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SoftwareTypeActions</servlet-name>
+        <servlet-class>com.randr.webdw.softwareType.SoftwareTypeController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>StateActions</servlet-name>
+        <servlet-class>com.randr.webdw.state.StateController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ProspectActions</servlet-name>
+        <servlet-class>com.randr.webdw.prospect.ProspectController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProspectSearchActions</servlet-name>
+        <servlet-class>com.randr.webdw.prospect.ProspectSearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProspectPrintActions</servlet-name>
+        <servlet-class>com.randr.webdw.prospect.ProspectPrintController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProspectDownloadActions</servlet-name>
+        <servlet-class>com.randr.webdw.prospect.ProspectDownloadController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ContactActions</servlet-name>
+        <servlet-class>com.randr.webdw.contact.ContactController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>NoteActions</servlet-name>
+        <servlet-class>com.randr.webdw.note.NoteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmailTemplateActions</servlet-name>
+        <servlet-class>com.randr.webdw.emailTemplate.EmailTemplateController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CommisionActions</servlet-name>
+        <servlet-class>com.randr.webdw.commision.CommisionController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CustomQueries</servlet-name>
+        <servlet-class>com.randr.webdw.customQuery.CustomQueryController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ImportData</servlet-name>
+        <servlet-class>com.randr.webdw.importData.ImportDataController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>LabelActions</servlet-name>
+        <servlet-class>com.randr.webdw.label.LabelController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>SalesActions</servlet-name>
+        <servlet-class>com.randr.webdw.salesAction.SalesActionController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EmailSalesActions</servlet-name>
+        <servlet-class>com.randr.webdw.emailSalesAction.EmailSalesActionController</servlet-class>
+    </servlet>
+
+   <servlet>
+        <servlet-name>EmailCampaigns</servlet-name>
+        <servlet-class>com.randr.webdw.emailSalesAction.emailCampaign.EmailCampaignController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Campaign</servlet-name>
+        <servlet-class>com.randr.webdw.campaign.CampaignController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>WebsiteActions</servlet-name>
+        <servlet-class>com.randr.webdw.website.WebsiteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DocumentActions</servlet-name>
+        <servlet-class>com.randr.webdw.document.DocumentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProspectDocumentActions</servlet-name>
+        <servlet-class>com.randr.webdw.prospectDocument.ProspectDocumentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TerritoryCalendarActions</servlet-name>
+        <servlet-class>com.randr.webdw.calendarSchedule.CalendarScheduleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TerritoryZipActions</servlet-name>
+        <servlet-class>com.randr.webdw.territoryZip.TerritoryZipController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProspectSalesActionActions</servlet-name>
+        <servlet-class>com.randr.webdw.prospectSalesAction.ProspectSalesActionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomQueryDownloadActions</servlet-name>
+        <servlet-class>com.randr.webdw.exportCSV.CSVDownloadController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StartupWizardActionActions</servlet-name>
+        <servlet-class>com.randr.webdw.startup.ApplicationStartupWizardServlet</servlet-class>
+    </servlet>
+	<servlet>
+        <servlet-name>StartupUpdateWizardActionActions</servlet-name>
+        <servlet-class>com.randr.webdw.startup.ApplicationStartupUpdateWizardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProspectCampaignActions</servlet-name>
+        <servlet-class>com.randr.webdw.prospectCampaign.ProspectCampaignController</servlet-class>
+    </servlet>
+   	<servlet>
+        <servlet-name>MobilityActions</servlet-name>
+        <servlet-class>com.randr.webdw.mobility.MobilityController</servlet-class>
+    </servlet>
+    
+   	<servlet>
+        <servlet-name>EmailQueActions</servlet-name>
+        <servlet-class>com.randr.webdw.emailQue.EmailQueController</servlet-class>
+    </servlet>
+
+   	<servlet>
+        <servlet-name>EmailQueTransferActions</servlet-name>
+        <servlet-class>com.randr.webdw.emailQue.transfer.EmailQueTransferController</servlet-class>
+    </servlet>
+
+    <!--
+   	<servlet>
+        <servlet-name>ReloadApplicationActions</servlet-name>
+        <servlet-class>com.randr.webdw.reload.ReloadApplicationConfigController</servlet-class>
+    </servlet>
+    -->
+
+    <servlet>
+        <servlet-name>RequestActions</servlet-name>
+        <servlet-class>com.randr.webdw.request.RequestController</servlet-class>
+    </servlet>
+    
+    <!-- Action Servlet Mapping -->
+	
+	<servlet-mapping>
+        <servlet-name>ProspectSearchActions</servlet-name>
+        <url-pattern>/current_actions</url-pattern>
+    </servlet-mapping>
+    
+	<servlet-mapping>
+        <servlet-name>MobilityActions</servlet-name>
+        <url-pattern>/mobility</url-pattern>
+    </servlet-mapping>
+    
+	<servlet-mapping>
+        <servlet-name>TerritoryZipActions</servlet-name>
+        <url-pattern>/territory_zip</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>TerritoryZipActions</servlet-name>
+        <url-pattern>/admin/territory_zip</url-pattern>
+    </servlet-mapping>
+    
+	<servlet-mapping>
+        <servlet-name>TerritoryCalendarActions</servlet-name>
+        <url-pattern>/territory_calendar</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ConfigurationsActions</servlet-name>
+        <url-pattern>/admin/config</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CalendarActions</servlet-name>
+        <url-pattern>/admin/calendar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CalendarActions</servlet-name>
+        <url-pattern>/calendar</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StaticActions</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StaticActions</servlet-name>
+        <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StaticActions</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StaticActions</servlet-name>
+        <url-pattern>/admin/print</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StaticActions</servlet-name>
+        <url-pattern>/print</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserActions</servlet-name>
+        <url-pattern>/admin/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserActions</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CompanyActions</servlet-name>
+        <url-pattern>/admin/company</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TerritoryActions</servlet-name>
+        <url-pattern>/admin/territory</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LobActions</servlet-name>
+        <url-pattern>/admin/lob</url-pattern>
+    </servlet-mapping>
+    
+     <servlet-mapping>
+        <servlet-name>CurrencyActions</servlet-name>
+        <url-pattern>/admin/currency</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CountryActions</servlet-name>
+        <url-pattern>/admin/country</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StatusActions</servlet-name>
+        <url-pattern>/admin/status</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>SizeActions</servlet-name>
+        <url-pattern>/admin/size</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>VerifiedActions</servlet-name>
+        <url-pattern>/admin/verified</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SystemTypeActions</servlet-name>
+        <url-pattern>/admin/system_type</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SoftwareTypeActions</servlet-name>
+        <url-pattern>/admin/software_type</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StateActions</servlet-name>
+        <url-pattern>/admin/state</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ProspectActions</servlet-name>
+        <url-pattern>/prospect</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ProspectActions</servlet-name>
+        <url-pattern>/admin/prospect</url-pattern>
+    </servlet-mapping>
+        
+    <servlet-mapping>
+        <servlet-name>ProspectPrintActions</servlet-name>
+        <url-pattern>/prospect_print</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProspectSearchActions</servlet-name>
+        <url-pattern>/prospect_search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProspectDownloadActions</servlet-name>
+        <url-pattern>/prospects.csv</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ContactActions</servlet-name>
+        <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>NoteActions</servlet-name>
+        <url-pattern>/note</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>NoteActions</servlet-name>
+        <url-pattern>/admin/note</url-pattern>
+    </servlet-mapping>
+
+   <servlet-mapping>
+        <servlet-name>EmailTemplateActions</servlet-name>
+        <url-pattern>/email_template</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EmailTemplateActions</servlet-name>
+        <url-pattern>/admin/email_template</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CommisionActions</servlet-name>
+        <url-pattern>/admin/commision</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommisionActions</servlet-name>
+        <url-pattern>/commision</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CustomQueries</servlet-name>
+        <url-pattern>/admin/custom_queries</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomQueries</servlet-name>
+        <url-pattern>/custom_queries</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ImportData</servlet-name>
+        <url-pattern>/admin/import_data</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LabelActions</servlet-name>
+        <url-pattern>/admin/label</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>SalesActions</servlet-name>
+        <url-pattern>/admin/sales_action</url-pattern>
+    </servlet-mapping>
+ 
+     <servlet-mapping>
+        <servlet-name>EmailSalesActions</servlet-name>
+        <url-pattern>/admin/email_sales_action</url-pattern>
+    </servlet-mapping>
+
+     <servlet-mapping>
+        <servlet-name>EmailCampaigns</servlet-name>
+        <url-pattern>/admin/email_campaign</url-pattern>
+    </servlet-mapping>
+        
+    <servlet-mapping>
+        <servlet-name>Campaign</servlet-name>
+        <url-pattern>/admin/campaign</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>WebsiteActions</servlet-name>
+        <url-pattern>/website</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DocumentActions</servlet-name>
+        <url-pattern>/document</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProspectDocumentActions</servlet-name>
+        <url-pattern>/prospect_document</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProspectSearchReportActions</servlet-name>
+        <url-pattern>/prospect_search_report</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProspectSearchReportActions</servlet-name>
+        <url-pattern>/admin/prospect_search_report</url-pattern>
+    </servlet-mapping>
+ 	<servlet-mapping>
+    <servlet-name>ProspectSalesActionActions</servlet-name>
+        <url-pattern>/prospect_sales_action</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>CustomQueryDownloadActions</servlet-name>
+        <url-pattern>/query.csv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StartupWizardActionActions</servlet-name>
+        <url-pattern>/startup</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>StartupUpdateWizardActionActions</servlet-name>
+        <url-pattern>/startup_update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ProspectCampaignActions</servlet-name>
+        <url-pattern>/prospect_campaign</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+    	<servlet-name>EmailQueActions</servlet-name>
+        <url-pattern>/email_que</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+    	<servlet-name>EmailQueTransferActions</servlet-name>
+        <url-pattern>/email_que_transfer</url-pattern>
+    </servlet-mapping>
+
+    <!--
+    <servlet-mapping>
+    	<servlet-name>ReloadApplicationActions</servlet-name>
+        <url-pattern>/admin/reload_application</url-pattern>
+    </servlet-mapping>
+    -->
+    
+  <servlet-mapping>
+    <servlet-name>RequestActions</servlet-name>
+    <url-pattern>/request</url-pattern>
+  </servlet-mapping>   
+</web-app>

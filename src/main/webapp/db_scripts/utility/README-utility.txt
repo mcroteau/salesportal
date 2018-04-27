@@ -1,0 +1,1 @@
+To Clear DB of all prospects, run clean-prospects.sql

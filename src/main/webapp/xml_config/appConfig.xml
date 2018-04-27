@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?><appConfig>
+
+    <!--      Installation options - Database information          -->
+    <!--currently the valid values are DB2 and POSTGRES-->
+    <DB_TYPE>POSTGRES</DB_TYPE>
+    <DB_USER>postgres</DB_USER>
+    <DB_PASSWORD>postgres</DB_PASSWORD>
+    <DB_CONNECTION_POOL_MIN>1</DB_CONNECTION_POOL_MIN>
+	<DB_CONNECTION_POOL_MAX>10</DB_CONNECTION_POOL_MAX>
+    <!--name of the library. for Windows leave this blank-->
+    <LIB />
+    <!--name of the DB2 database for Windows. blank for as/400 -->
+    <DB_NAME>salesportal</DB_NAME>
+    <!--ip address of the machine where the database is located. if is on same machine the put localhost-->
+    <DB_SYSTEM_IP>localhost</DB_SYSTEM_IP><!-- e.g. localhost -->
+    <!--class of the jdbc driver that will be used.
+    on as/400 specify com.ibm.as400.access.AS400JDBCDriver
+    on NT specify COM.ibm.db2.jdbc.net.DB2Driver-->
+    <DB_DRIVER>org.postgresql.Driver</DB_DRIVER>
+    
+    <!--YES or NO depending on db driver, platform and app server.If YES the result sets can make absolute positioning. -->
+    <!--Prefered value is YES but it won't work in all cases-->
+    <SCROLLABLE_CURSOR>YES</SCROLLABLE_CURSOR>
+    <APPLICATION_CONTEXT>salesportal</APPLICATION_CONTEXT>
+    <PORT_NUMBER>9461</PORT_NUMBER>
+    <LOCAL_COMPLETE_URL>http://localhost:9461/salesportal</LOCAL_COMPLETE_URL>
+    <SALESPORTAL_URL>http://www.yoursalesportal.com/salesportal/user</SALESPORTAL_URL><!-- used as a link in the sales action emails -->
+
+    <!--      Installation options - Company Information           -->
+    <COMPANY_NAME>name</COMPANY_NAME>
+    <COMPANY_PHONE>phone</COMPANY_PHONE>
+    <COMPANY_ADDRESS>address</COMPANY_ADDRESS>
+    <COMPANY_STATE>state</COMPANY_STATE>
+    <COMPANY_STATE_ABREV>state abrev</COMPANY_STATE_ABREV>
+    <COMPANY_CITY>city</COMPANY_CITY>
+    <COMPANY_ZIP>zip</COMPANY_ZIP>
+    <COMPANY_FAX>fax</COMPANY_FAX>
+    <CONTACT_EMAIL>email</CONTACT_EMAIL>
+   
+    
+    <SSL_ENABLED>NO</SSL_ENABLED>
+    <SMTP_AUTHENTICATION>false</SMTP_AUTHENTICATION>
+    <SMTP_RELAY_HOST>mail.server.com</SMTP_RELAY_HOST>
+    <SMTP_USER>smtpuser</SMTP_USER>
+    <SMTP_PASSWORD>smtppass</SMTP_PASSWORD>
+    <SANITY_TIME_INTERVAL>10</SANITY_TIME_INTERVAL>
+ 
+    <!--  Variables for the email link -->
+	<CC_EMAILS></CC_EMAILS>
+	<BCC_EMAILS></BCC_EMAILS>
+	<INCLUDE_CONTACT_NAME_IN_SUBJECT></INCLUDE_CONTACT_NAME_IN_SUBJECT>
+	<SUBJECT_TEXT></SUBJECT_TEXT>
+	<BODY_TEXT></BODY_TEXT>
+    
+    
+	<!-- Calendar Refresh Interval in Seconds -->
+	<CALENDAR_REFRESH_SECONDS>120</CALENDAR_REFRESH_SECONDS>
+    
+    <!-- Performance Data  -->
+    <DISPLAY_OPEN_ORDERS_FIELDS>YES</DISPLAY_OPEN_ORDERS_FIELDS>
+	<DISPLAY_OPEN_QUOTES_FIELDS>YES</DISPLAY_OPEN_QUOTES_FIELDS>
+	<DISPLAY_OPEN_AR_FIELDS>YES</DISPLAY_OPEN_AR_FIELDS>
+	<DISPLAY_ORDERS_INVOICES_FIELDS>YES</DISPLAY_ORDERS_INVOICES_FIELDS>
+	
+    <!--      Report Configuration      -->
+    
+    <JASPER_REPORTS_ROOT>WEB-INF/jasperReports</JASPER_REPORTS_ROOT> 
+    
+    <!-- jasper source paths are relative to jasper root--> 
+    <REPORT_COMPANY_LOGO>graphics/report-dir/report_logo.jpg</REPORT_COMPANY_LOGO> 
+    <PROSPECT_SEARCH_REPORT_JASPER_SOURCE>reports/prospectSearchJasperReport.jrxml</PROSPECT_SEARCH_REPORT_JASPER_SOURCE> 
+
+    <!--      Debug      -->
+    <SQL_TRACE>NO</SQL_TRACE>
+
+    <!--     Sales Action    -->
+    <AUTOMATED_EMAIL_SENDER>Sales Action Reminder &lt;test&gt;</AUTOMATED_EMAIL_SENDER>
+    <SALES_ACTION_EMAIL_ENABLED>YES</SALES_ACTION_EMAIL_ENABLED>
+    <SALES_ACTION_EMAIL_SCHEDULE_MINUTES>240</SALES_ACTION_EMAIL_SCHEDULE_MINUTES>
+    <SALES_ACTION_EMAIL_BEFORE_DAYS>3</SALES_ACTION_EMAIL_BEFORE_DAYS>
+    <SALES_ACTION_BODY_TEXT>&lt;hr&gt;
+&lt;br&gt;This is an automated email by the Randr salesportal.
+&lt;br&gt;You received this message because you are either the territory owner or the territory sales manager or the territory service manager of the prospect.
+</SALES_ACTION_BODY_TEXT>
+    <SALES_ACTION_TEST_EMAIL_ADDRESS />
+
+	<SALES_ACTION_ALERT_USER_MINUTES>10</SALES_ACTION_ALERT_USER_MINUTES>
+
+	<!--  Import and USHUD settings -->
+	<ELIMINATE_DUPS_ON_AUTOMATED_IMPORTS>FALSE</ELIMINATE_DUPS_ON_AUTOMATED_IMPORTS>
+
+<!--  DATA MIGRATIONS SETTINGS -->
+
+<!-- Notes: 
+
+	Scheduling: For a once a day time scheduled import. Set the xxx_xxx_SCHEDULE_START_TIME to 
+	the start time in military time (just hour no minutes) and set the xxx_xxx_SCHEDULE_MINUTES 
+	to 24 * 60 or 1440. See examples below:
+	
+	<PROSPECT_IMPORT_SCHEDULE_MINUTES>1440</PROSPECT_IMPORT_SCHEDULE_MINUTES>
+	<PROSPECT_IMPORT_SCHEDULE_START_TIME>22</PROSPECT_IMPORT_SCHEDULE_START_TIME>
+	
+	The example above would run at 10:00 pm every 24 hours (daily).
+	
+	<PROSPECT_IMPORT_SCHEDULE_MINUTES>720</PROSPECT_IMPORT_SCHEDULE_MINUTESS>
+	<PROSPECT_IMPORT_SCHEDULE_START_TIME>10</PROSPECT_IMPORT_SCHEDULE_START_TIME>
+	
+	The example above would run at 10:00 am and 10:00 pm.
+
+-->
+<DATA_MIGRATION_PROSPECT_CSV_LINK>http://localhost:8080/datamigration/request</DATA_MIGRATION_PROSPECT_CSV_LINK>
+<IMPORT_EMAIL_ENABLED>false</IMPORT_EMAIL_ENABLED>
+<IMPORT_EMAIL_SUBJECT>Automated Import Report</IMPORT_EMAIL_SUBJECT>
+<IMPORT_AUTOMATED_EMAIL_RECEIVER>you@yoururl.com</IMPORT_AUTOMATED_EMAIL_RECEIVER>
+<IMPORT_AUTOMATED_EMAIL_FROM_ADDRESS>Import.Confirmation@salesportal.com</IMPORT_AUTOMATED_EMAIL_FROM_ADDRESS>
+
+<PROSPECT_IMPORT_ENABLED>false</PROSPECT_IMPORT_ENABLED>
+<PROSPECT_IMPORT_SCHEDULE_MINUTES>20</PROSPECT_IMPORT_SCHEDULE_MINUTES>
+<PROSPECT_IMPORT_SCHEDULE_START_TIME />
+<PROSPECT_IMPORT_FILE_PREFIX>prospects</PROSPECT_IMPORT_FILE_PREFIX>
+<PROSPECT_IMPORT_UNPROCESSED_STORAGE>csv/prospects</PROSPECT_IMPORT_UNPROCESSED_STORAGE>
+<PROSPECT_IMPORT_PROCESSED_STORAGE>csv/prospects/processed</PROSPECT_IMPORT_PROCESSED_STORAGE>
+<PROSPECT_IMPORT_INVALID_STORAGE>csv/prospects/invalid</PROSPECT_IMPORT_INVALID_STORAGE>
+<PROSPECT_IMPORT_LOG>csv/prospects/log</PROSPECT_IMPORT_LOG>
+
+<!-- AUTOMATED EMAIL SETTINGS SP  -->
+<SALESPORTAL_AUTOMATED_EMAIL_LINK>http://localhost:8080/datamigration/email_que</SALESPORTAL_AUTOMATED_EMAIL_LINK>	
+<AUTOMATED_EMAIL_EXPORT_ENABLED>TRUE</AUTOMATED_EMAIL_EXPORT_ENABLED>
+
+<VERIFIED_VALUE_FOR_EMAIL_SALES_ACTION>1</VERIFIED_VALUE_FOR_EMAIL_SALES_ACTION><!-- used when verify is set to Yes in email sales action -->
+<SALES_ACTION_ID_FOR_COMPLETED_EMAIL_SALES_ACTION>1</SALES_ACTION_ID_FOR_COMPLETED_EMAIL_SALES_ACTION>
+<EMAIL_SALES_ACTION_SEND_ENABLED>false</EMAIL_SALES_ACTION_SEND_ENABLED>
+<EMAIL_SALES_ACTION_SEND_SCHEDULE_MINUTES>720</EMAIL_SALES_ACTION_SEND_SCHEDULE_MINUTES>
+<EMAIL_SALES_ACTION_SEND_SCHEDULE_START_TIME>22</EMAIL_SALES_ACTION_SEND_SCHEDULE_START_TIME>
+
+<!-- EMAIL_OPTOUT IMPORT FROM ORDER PORTAL AND OTHER SOURCE VAI DATA MIGRATION PORTAL -->
+<EMAIL_OPTOUT_IMPORT_ENABLED>false</EMAIL_OPTOUT_IMPORT_ENABLED>
+<EMAIL_OPTOUT_IMPORT_SCHEDULE_MINUTES>120</EMAIL_OPTOUT_IMPORT_SCHEDULE_MINUTES>
+<EMAIL_OPTOUT_IMPORT_SCHEDULE_START_TIME />
+<EMAIL_OPTOUT_IMPORT_FILE_PREFIX>email_optout</EMAIL_OPTOUT_IMPORT_FILE_PREFIX>
+<EMAIL_OPTOUT_IMPORT_UNPROCESSED_STORAGE>csv/email_optout</EMAIL_OPTOUT_IMPORT_UNPROCESSED_STORAGE>
+<EMAIL_OPTOUT_IMPORT_PROCESSED_STORAGE>csv/email_optout/processed</EMAIL_OPTOUT_IMPORT_PROCESSED_STORAGE>
+<EMAIL_OPTOUT_IMPORT_INVALID_STORAGE>csv/email_optout/invalid</EMAIL_OPTOUT_IMPORT_INVALID_STORAGE>
+<EMAIL_OPTOUT_IMPORT_LOG>csv/email_optout/log</EMAIL_OPTOUT_IMPORT_LOG>
+
+
+	<!-- AUTOMATED CAMPAIGN SETTINGS SP  -->
+	<AUTOMATED_CAMPAIGN_DAYS>7</AUTOMATED_CAMPAIGN_DAYS>
+	<AUTOMATED_CAMPAIGN_CREATE_ENABLED>FALSE</AUTOMATED_CAMPAIGN_CREATE_ENABLED>
+	<AUTOMATED_CAMPAIGN_CREATE_SCHEDULE_MINUTES>720</AUTOMATED_CAMPAIGN_CREATE_SCHEDULE_MINUTES>
+	<AUTOMATED_CAMPAIGN_CREATE_SCHEDULE_START_TIME></AUTOMATED_CAMPAIGN_CREATE_SCHEDULE_START_TIME>
+
+
+<!-- TERRITORY CHANGE SETTINGS  -->
+<PROSPECT_TERRITORY_CHANGE_ENABLED>false</PROSPECT_TERRITORY_CHANGE_ENABLED>
+<PROSPECT_TERRITORY_CHANGE_SCHEDULE_MINUTES>60</PROSPECT_TERRITORY_CHANGE_SCHEDULE_MINUTES>
+<PROSPECT_TERRITORY_CHANGE_SCHEDULE_START_TIME />
+
+    <!--      Page Layout Options - Common page elements         -->
+    <HTML_EDITOR_TYPE>FRONTPAGE</HTML_EDITOR_TYPE>
+    <GRAPHICS_CORRECTED>YES</GRAPHICS_CORRECTED>
+    <CUSTOM_PAGES_ENABLED>NO</CUSTOM_PAGES_ENABLED>
+    <META_DESCRIPTION />
+    <META_KEYWORDS />
+    <COMMON_PAGE_HEAD />
+    <ADMIN_SITE_CSS>admin.css</ADMIN_SITE_CSS>
+    <PUBLIC_SITE_CSS>public.css</PUBLIC_SITE_CSS>
+
+    <COMMON_PAGE_HEADER>
+&lt;div id="main"&gt;
+&lt;table class="border" height="580" width="100%"&gt;
+	&lt;tr&gt;
+        	&lt;td colspan="3" class="borderM" height="22"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      	&lt;td class="border" height="110" width="130" valign="top"&gt;
+        		&lt;img border="0" src="/salesportal/graphics/randr-logo-small.jpg"  &gt;
+		&lt;/td&gt;
+        	
+		&lt;td rowspan="2" valign="top" align="center" class="pagecontent" &gt;
+    </COMMON_PAGE_HEADER>
+    <HOME_PAGE_CONTENT></HOME_PAGE_CONTENT>
+
+    <COMMON_PAGE_FOOTER>
+			&lt;/td&gt;
+        	&lt;td rowspan="2" class="border" width="2"&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+        	&lt;td align="center" class="border" id="logged"&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Logged in as: &lt;br&gt;&lt;br&gt;[USER_PROFILE]&lt;/td&gt;
+	&lt;/tr&gt;
+      &lt;tr&gt;
+        	&lt;td colspan="3" class="borderM" height="22"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+    </COMMON_PAGE_FOOTER>
+
+    <!--       Page Layout Options - Menu configuration          -->
+    <MENU_VERTICAL_POSITION>130</MENU_VERTICAL_POSITION>
+    <MENU_HORIZONTAL_POSITION>0</MENU_HORIZONTAL_POSITION>
+    <MENU_STYLE>0</MENU_STYLE>
+    <MENU_OPTION_WIDTH>130</MENU_OPTION_WIDTH>
+    <SUBMENU_OPTION_WIDTH>170</SUBMENU_OPTION_WIDTH>
+
+    <MENU_LOW_BACKGROUND_COLOR>#666699</MENU_LOW_BACKGROUND_COLOR>
+    <MENU_TEXT_LOW_COLOR>#FFFFFF</MENU_TEXT_LOW_COLOR>
+
+    <MENU_HIGH_BACKGROUND_COLOR>#CC3333</MENU_HIGH_BACKGROUND_COLOR>
+    <MENU_TEXT_HIGH_COLOR>#FFFFFF</MENU_TEXT_HIGH_COLOR>
+
+    <MENU_BORDER_COLOR>#333366</MENU_BORDER_COLOR>
+
+    <MENU_TEXT_FONT_SIZE>8</MENU_TEXT_FONT_SIZE>
+    <MENU_TEXT_FONT_FAMILY>Verdana</MENU_TEXT_FONT_FAMILY>
+    <CUSTOM_MENU_ENABLED>NO</CUSTOM_MENU_ENABLED>
+    <MENU_OPTIONS_LIST>REPORTING,CUSTOM_QUERIES,MODIFY_ACCOUNT,COMMISIONS,NEW_CUSTOMER_ACCOUNT,CUSTOMER_ACCOUNTS,CURRENT_ACTIONS,CALENDAR,SUPPORT,DOCUMENTS,EMAIL_TEMPLATES,UML,ADMIN,ADMIN_CONFIG,LOGIN</MENU_OPTIONS_LIST>
+    <!--menu options enabled for user type 1 (Salesman)-->
+    <MENU_OPTIONS_ENABLED_1>1,1,1,1,1,1,1,1,1,1,1,0,0,0,1</MENU_OPTIONS_ENABLED_1>
+    <MENU_OPTIONS_ENABLED_2>1,1,1,1,1,1,1,1,1,1,1,0,1,1,1</MENU_OPTIONS_ENABLED_2>
+    <MENU_OPTIONS_ENABLED_3>0,0,0,0,0,1,0,0,0,0,0,0,0,0,1</MENU_OPTIONS_ENABLED_3>
+
+	<!-- controlls fields on the commission display -->
+    <DISPLAY_AP_FIELDS>NO</DISPLAY_AP_FIELDS>
+    
+    <!-- menu options for SUPPORT menu item ADDED -->
+    <SUPPORT_LINK_ENABLED>YES</SUPPORT_LINK_ENABLED>
+    <SUPPORT_LINK>webpages/info.html</SUPPORT_LINK>
+
+	<!--menu options for INFORPORTAL menu item ADDED -->
+    <INFOPORTAL_LINK_ENABLED>NO</INFOPORTAL_LINK_ENABLED>
+    <INFOPORTAL_LINK>http://youraddress:8180/ipsp_yourname</INFOPORTAL_LINK>
+
+    <!--      Page Layout Options - Home page                     -->
+    <HOME_PAGE_CONTENT />
+
+	<INITIAL_STARTUP_PERFORMED>YES</INITIAL_STARTUP_PERFORMED>
+	<GOOGLE_ANALYTICS_ACCT_NO></GOOGLE_ANALYTICS_ACCT_NO>  
+
+</appConfig>

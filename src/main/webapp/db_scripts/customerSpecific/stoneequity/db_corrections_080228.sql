@@ -1,0 +1,1 @@
+alter table webuser add column limit_view numeric(9,0);

@@ -1,0 +1,199 @@
+.exception {color:red}
+.success {color:navy}
+.note {color: black; font-size:10px; font-style:italic}
+
+#progressIndicator {color:red; font-weight: bold; padding-bottom: 15px; padding-top: 15px;}
+#hiddenDiv{text-align: center;}
+
+body {background-color:#E9ECF5; font-family:Arial; font-size:10px; padding: 0px; MARGIN: 0px;}
+
+h1 {color:navy;font-size:15pt;margin-top: 10px;}
+h2 {color:navy;font-size:12pt;}
+h3 {color:navy;font-size:11px}
+
+img {border-style:solid; border-width:0px}
+
+table {font-size:10px}
+th {}
+td {}
+td.collectionList{
+	font-size: 7pt;
+}
+#main {
+	 MARGIN: 0px 0px 0px 0px;
+	 PADDING: 0px
+}
+li.optionsToAdd{font-size: 11pt;}
+.pagecontent {background-color:#ffffff;}
+
+table.report {font-family:Arial; font-size:10px; border-collapse:collapse;border-color: #505050}
+.report tr {background-color:#ffffff;}
+.report tr.roweven{background-color:#f0f0f0;}
+.report tr.rowodd{background-color:#ffffff;}
+
+.report th {background-color: #e0e0e0;border-color:#d0d0d0}
+.report td {border-color:#d0d0d0}
+.report td.pastdue {color:#ff5500}
+.report table {}
+
+table#currentSalesActions{width:700px; border: solid 1px #f0f0f0;}
+table#currentSalesActions th{height: 30px; font-size: 10pt; border: solid 1px #d0d0d0; padding:5px;}
+table#currentSalesActions td{height: 30px; font-size: 8pt; border: solid 1px #d0d0d0;padding:5px;}
+
+table#currentSalesActionsPopup{width:400px; border: solid 1px #f0f0f0;}
+table#currentSalesActionsPopup th{width:400px; border: solid 1px #f0f0f0; padding:3px;}
+table#currentSalesActionsPopup td{width:400px; border: solid 1px #fff;padding:3px;}
+
+
+td.navigationbar1 {border-bottom: solid 1px white;border-top: solid 1px white; background-color:#eaeaea;}
+td.navigationbar2 {border-bottom: solid 1px white;background-color:#eaeaea;}
+
+table.form {background-color:#e0e0e0; border-style:solid; border-width:1px; border-color: #505050}
+table.form th {padding-bottom:1px;padding-top:1px;padding-right:6px;padding-left:6px;border-width:0px}
+table.form td {padding-bottom:1px;padding-top:1px;padding-right:6px;padding-left:6px;border-width:0px}
+
+table.border {border-collapse:collapse}
+td.border {background-color: #000066; color: #d0d0d0;}
+
+table.borderM{border-collapse:collapse}
+td.borderM{background-color: #000066; color: #d0d0d0;}
+
+a:link {color:blue; text-decoration:underline}
+a:visited {color:blue; text-decoration:underline}
+a:active {color:red; text-decoration:underline;}
+a:hover {color:blue; text-decoration:none;}
+
+a.button:link {font-size:10px;background-color: #c0c0c0; border-style:outset; border-width:2px; color:black; text-decoration:none; height:22px; padding:2px; font-weight: bold;}
+a.button:visited {font-size:10px;background-color: #c0c0c0; border-style:outset; border-width:2px; color:black; text-decoration:none; height:22px}
+a.button:active {font-size:10px;background-color: #c0c0c0; color:red; border-style:inset; border-width:2px; color:black; text-decoration:none; height:22px}
+a.button:hover {font-size:10px;background-color: #eaeaea; border-style:outset; border-width:2px; color:black; text-decoration:none; height:22px}
+
+img.button {vertical-align: middle}
+
+hr {height:1px; color:#c0c0c0}
+
+input {font-family:Arial;font-size:10px;}
+select {font-family:Arial; font-size:10px}
+textarea {font-family:Arial; font-size:10px}
+
+.print {background-color:#ffffff; font-family:Arial; font-size:8pt; margin:0px;}
+.print h1 {color: black;letter-spacing: 0px;font-family:Arial; font-size:12pt; margin: 10px; text-align:center;}
+.print h2 {color: black;letter-spacing: 0px;font-family:Arial; font-size:10pt; margin-bottom: 4px;}
+.print table {font-family:Arial; font-size:8pt; margin: 0px;}
+.print td {font-family:Courier New; font-size:10pt; margin: 0px;}
+.printreport {font-family:Arial; padding-bottom:1px;padding-top:1px;padding-right:3px;padding-left:3px;  border-color:black; border-style:solid; border-width:1px; font-size:10pt; background-color:#ffffff; border-collapse:collapse}
+.printreport th {background-color: #EAEAEA;padding-bottom:1px;padding-top:1px;padding-right:3px;padding-left:3px;  border-color:#a0a0a0; border-style:solid; border-width:1px;}
+.printreport td {background-color:#ffffff;padding-bottom:1px;padding-top:1px;padding-right:3px;padding-left:3px;  border-color:#a0a0a0; border-style:solid; border-width:1px;}
+
+pre.notetext {
+ white-space:normal; word-wrap:break-word;
+ font-family:Arial;
+}
+
+h4 {color:green; font-size:12px}
+#aboutInfoportal{width: 300px;padding: 15px; width: 70%; font-family: Verdana; font-size: 9pt; border: 1px navy dotted; text-align: left; line-height: 1.5em; margin-bottom: 15px;}
+#installstatusno{font-size: 9pt; font-weight: bold; color: red; text-align: left;}
+#installstatusyes{font-size: 9pt; font-weight: bold; color: green; text-align: left;}
+#applicationSettings{}
+#havingProblems{width: 400px;padding: 15px; width: 70%; font-family: Verdana; font-size: 9pt; border: 1px navy dotted; text-align: left; line-height: 1.5em; margin-bottom: 15px;}
+#havingTrouble{text-align: left;font-size: 10pt; font-style: italic; color: navy;}
+#problem{color: red; font-weight: bold;}
+#solution{color: green;font-weight: bold;}
+ul.infoportal{padding-top:5px; padding-bottom: 5px; font-size: 9pt; text-align: left;}
+
+#infoportal{width: 300px;padding: 15px; width: 70%; font-family: Verdana; font-size: 9pt; border: 1px navy dotted; text-align: left; line-height: 1.5em; margin-bottom: 15px;}
+
+
+td.help{vertical-align: top; width:300px; }
+#moreInfo{padding: 10px; width: 90%; font-family: Verdana; font-size: 8pt; border: 1px navy dotted; text-align: left; line-height: 1.5em; margin-bottom: 25px;}
+#moreInfoImport{padding:3px;}
+ol.moreInfo{padding-top:5px; padding-bottom: 5px; font-weight: bold;}
+#description{font-weight:normal; }
+li.moreInfo{font-weight: bold; padding:4px;}
+select.salesmen{min-width: 155px;}
+
+#noBackgroundColor{background-color: #FFF}
+
+table.nocolor{background-color: #fff; border: solid 1px green; border-collapse: collapse; font-family: Tahoma; font-size: 9pt;}
+table p{padding: 20px; font-size: 10pt;}
+td.companyLoginName{border-bottom: solid 1px #095401; color:#000080; font-size: 17pt; font-weight: bold; padding:10px;}
+td.randrlogo{text-align: right; padding:15px;}
+td.loggingIn{font-weight: bold; color:red; text-align:center;}
+#loginError{width:100%; color: red; font-weight: bold;  background-color: #FFF; paddding: 25px; border: solid 2px red;}
+
+#duplicateSearch{background-color: #FFF;}
+table.duplicateSearch{width:400px; border: solid 1px #DBDBDB; margin-top: 20px; background-color: #FFF8DC; border-collapse: collapse;}
+
+input.searchForDuplicates{font-size: 8pt; color: #000080; padding:3px; font-weight: bold;}
+td.headSearchDups{border-bottom: solid 1px #DBDBDB; background-color: #EEE8CD;}
+td.headerBar{border-bottom: solid 1px grey; padding-bottom: 15px;}
+td.headerBar a{font-size: 11pt; text-decoration: underline; color: #000080;}
+td.headerBar a:hover{font-size: 11pt; text-decoration: none;}
+
+#moreInfoSearchDups{padding: 10px; width: 500px; font-family: Verdana; font-size: 7pt; border: 1px navy dotted; text-align: left;}
+#moreInfoSearchDups p{font-size: 7pt; line-height: normal;}
+ol.moreInfoDups{padding-top:2px; padding-bottom: 2px; font-weight: bold;}
+
+td.salesportallogo{text-align: left; padding:10px;}
+
+img.salesportal{border: 1px solid #FFF; }
+img.salesportal:hover{border: 1px solid grey;}
+
+
+ul.importAttributes{align: left;}
+li.import{text-align: left;}
+
+
+a.navigation{font-size: 12pt; font-weight: bold; color: blue; vertical-align: top; padding-right: 60px; padding-left: 60px; margin-bottom: 30px;}
+#warning{color: red; font-size: 10pt; padding-right:20px; padding-left:20px;}
+
+a.navigation:link {font-size:8pt;background-color: #fff; border:1px grey solid; color:#000080; padding:7px;}
+a.navigation:hover {font-size:8pt;background-color: #eaeaea; border:1px grey solid; color:#000080; padding:7px; font-weight: bold;}
+
+td.passedDue{color: red;}
+td.passedDue a{color: red;}
+
+body.popup{background-color: #fff; font-size: 7pt;}
+body.popup h1{color:navy;font-size:10pt;margin-top: 10px;}
+
+table.completed{border: solid 1px #505050; background:#eaeaea; border-collapse: collapse;}
+table.completed th{border: solid 1px #d0d0d0; color:#000080; padding:3px; border-collapse: collapse;}
+td.comLeft{background-color:#fff; width: 25%; text-align:center; padding-left:4px; padding-right:4px; border: solid 1px #d0d0d0;}
+td.comRight{background-color:#fff; width: 75%; padding-left:4px; padding-right:4px;  border: solid 1px #d0d0d0;}
+a.completed{}
+
+
+#currentActionsAbout{width:700px; text-align: left; font-size: 8pt; border: 1px navy dotted; text-align: left; line-height: 20px; margin-bottom: 25px; }
+#currentActionsAbout p{margin:0px; padding:10px; font-size: 8pt;}
+
+table.currentActionsMenu{width:700px; border-collapse: collapse;}
+table.currentActionsMenu 
+td.cLeft{text-align: left;}
+td.cLeft ul{padding:0px; margin:0px;}
+td.cLeft li{padding:3px; list-style: none;}
+td.cLeft a{font-size: 9pt;}
+td.cRight{text-align: right; font-size: 10pt;}
+td.cRight img{vertical-align: top;}
+td.cRight a{text-decoration: none;font-weight: bold;}
+td.cRight a:hover{color:#58b33c;}
+#salesActionAlarm{vertical-align: top; font}
+a.include{font-size:9pt; font-weight: bold;}
+a.help{font-size: 7pt; text-align: right; }
+#right{text-align: right; border: solid 1px navy;}
+
+
+#manualEmailQueue{width:400px;}
+#manualEmailQueue p{text-align: left;}
+#manualEmailQueue h1{text-align: center;}
+#manualEmailQueue table{margin:auto;}
+
+#manualEmailQueue table.emailList{border-collapse: collapse;border:solid 1px #79CDCD;margin-bottom:30px;}
+#manualEmailQueue table.emailList tr:hover{background-color: #97FFFF;}
+#manualEmailQueue table.emailList th{text-align: center;padding:3px;border:solid 1px #79CDCD; background-color: #97FFFF;}
+#manualEmailQueue table.emailList td{border:solid 1px #97FFFF;padding:3px;}
+
+#manualEmailQueue table th{text-align: right;}
+#manualEmailQueue ol{text-align: left;margin-top:0px; padding-top:0px;}
+#manualEmailQueue ol li{list-style: decimal;}
+
+

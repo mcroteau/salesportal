@@ -1,0 +1,25 @@
+1. 001-create-territory-add-zips.jmx :
+	creates Mike's Test Territory
+	adds 99999, 88888, 77777 to Mike's Territory
+
+2. 002-create-prospect-1.jmx: 
+	creates prospect and auto assignms territory by using zip 77777
+
+3. 003-create-prospect-2.jmx:
+	creates prospect and manual assigns prospect to territory Mike's Test Territory. Does a work with prospect, searches by "Prospects R Us" as prospect company name:
+
+
+4. 004-create-prospect-3.jmx:
+	creates prospect without zip or territory. Does a work with prospect, searches by "Prospects R Us" as prospect company name:
+
+5. 005-edit-prospects-add-sales-action.jmx:
+	add sales actions to all Prospects R Us prospects + edits.  Search on Prospects R Us in work with prospects.
+
+6. 006-add-time-prospects-1-2-3.jmx:
+	Added times to next sales actions.  Search on prospects R Us, made sure time was displaying in search results.
+
+7. 007-display-day-edit-action-dates-redisplay.jmx:
+	displayed all calendar views for month of march 2007.  Day reviewed 5 march 2007.
+
+8. 008-display-week-month-views.jmx:
+	viewed week for territory Mikes Territory, previous, next, a few times.  Viewed month for same territory, previous next, drilled down, changed date, redisplay month view, next, previous.

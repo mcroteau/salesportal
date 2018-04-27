@@ -1,0 +1,23 @@
+<project name="testproject" default="test" basedir=".">
+	<property file="configuration.properties"/>
+		
+	<target name="test">
+		<echo message="Hello World" />
+	</target>
+	
+	<target name="save_application_context" description="Save Application Context">
+	
+	<echo message=""/>
+	<echo message="Replacing context in file ${xmlconfig.file}... "/>
+	
+	<replace file="${xmlconfig.file}" token="@xmlconfig.app.context@" value="${application_context}" />
+	<echo message="--    token=@xmlconfig.app.context@ value=${application_context} "/>
+		
+	<echo message="Replacing port in file ${xmlconfig.file}... "/>
+			
+	<replace file="${xmlconfig.file}" token="@xmlconfig.app.port@" value="${port_number}" />
+	<echo message="--    token=@xmlconfig.app.port@ value=${port_number} "/>
+		
+	</target>
+		
+</project>
